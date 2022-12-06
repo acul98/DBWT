@@ -66,7 +66,7 @@ class ExampleController
 
     public function anmeldung(RequestData $data) {
 
-        return view('examples.Werbeseite.anmeldung', []);
+        return view('Werbeseite.anmeldung', []);
     }
 
 
