@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--
+- Praktikum DBWT. Autoren:
+- Luca, Kirchhoff, 3531093
+- Elisa, Rofalski, 3541485
+-->
+
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale= 1, user-scalable=yes">
+  <title>m1_4d_links.html</title>
+</head>
+
+<body>
+
+<form method="post" action="formdata.html">
+<fieldset>
+  <legend> Anmeldung </legend>
+  <label>Anrede</label> <br>
+  <label for="Herr"><input id="Herr" checked="checked" name="Anrede" type="radio" value="Herr" /> Herr</label> <br>
+  <label for="Frau"><input id="Frau" name="Anrede" type="radio" value="Frau" /> Frau</label> <br>
+  <br>
+  <label for="vornameid">Vorname<sup>*</sup></label><br>
+  <input id="vornameid" name= "name" type="text" required/> <br>
+  <br>
+  <label for="nachnameid">Nachname<sup>*</sup></label><br>
+  <input id="nachnameid" name= "name" type="text" required/> <br>
+  <br>
+  <label for="emailid"> E-Mail<sup>*</sup></label><br>
+  <input id="emailid"   type="email" required/> <br>
+  <br>
+  <label for="bi"> Benachrichtigungsintervall </label> <br>
+  <select id="bi" name="name">
+        <option value="Tag">Tag</option>
+        <option value="Woche">Woche</option>
+        <option value="Monat">Monat</option>
+   </select> <br>
+  <br>
+  <label for="Datenschutz">
+    <input id="Datenschutz" name="Infos"  type="checkbox" required/> Datenschutzhinweis gelesen<sup>*</sup></label> <br>
+  <br>
+  <input type="submit"   value="Abschicken" required/> <br>
+  <br>
+  <sup>*)</sup> Eingaben sind Pflicht
+</fieldset>
+
+</form>
+
+</body>
+</html>

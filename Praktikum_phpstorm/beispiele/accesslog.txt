@@ -1,0 +1,16 @@
+10:3810:3810:3810:3910:3910:39Array
+Array
+Array
+Array
+12:07Uhrzeit.
+25.10.2022
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+127.0.0.1
+12:07Uhrzeit.
+25.10.2022
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+127.0.0.1
+07:50Uhrzeit.
+04.11.2022
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+127.0.0.1

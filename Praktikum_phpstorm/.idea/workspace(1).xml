@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f49ceacf-eb46-4bd3-938a-82cdae2e43f3" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/werbeseite" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2FcNPHyovV1KchsBdRSrOgEoTOl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/elisa/iCloudDrive/Praktikum_phpstorm",
+    "list.type.of.created.stylesheet": "CSS",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\elisa\iCloudDrive\Praktikum_phpstorm\werbeseite" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/werbeseite" />
+      <recent name="$PROJECT_DIR$/beispiele" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Built-in Web Server.Unnamed">
+    <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" nameIsGenerated="true" document_root="$PROJECT_DIR$" port="9500">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/beispiele/test.php">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP Built-in Web Server.Unnamed" />
+      <item itemvalue="PHP Script.test.php" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f49ceacf-eb46-4bd3-938a-82cdae2e43f3" name="Changes" comment="" />
+      <created>1664787387710</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664787387710</updated>
+      <workItem from="1664787389045" duration="19269000" />
+      <workItem from="1665046675332" duration="3656000" />
+      <workItem from="1665053154287" duration="1058000" />
+      <workItem from="1665641688529" duration="2317000" />
+      <workItem from="1665644121141" duration="4032000" />
+      <workItem from="1665648847430" duration="37000" />
+      <workItem from="1665648930488" duration="3069000" />
+      <workItem from="1665947657654" duration="208000" />
+      <workItem from="1665994363886" duration="109000" />
+      <workItem from="1665995372209" duration="1115000" />
+      <workItem from="1666002108454" duration="214000" />
+      <workItem from="1666007528682" duration="1285000" />
+      <workItem from="1666022584059" duration="4604000" />
+      <workItem from="1666110252352" duration="432000" />
+      <workItem from="1666115623205" duration="417000" />
+      <workItem from="1666187150050" duration="7179000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

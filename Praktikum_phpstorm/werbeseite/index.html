@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<!--
+- Praktikum DBWT. Autoren:
+- Luca, Kirchhoff, 3531903
+- Elisa, Rofalski, 3541485
+-->
+
+<!--navbar Quelle:  https://techmidpoint.com/transparent-responsive-navigation-menus-using-html-and-css/ -->
+
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Mensa Webseite  </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<header>
+  <input type ="checkbox" name ="" id ="chk1">
+  <div> <img class="logo" src="logoweiß.png" alt="mensalogo"> </div>
+  <div class="search-box">
+    <form>
+      <input type ="text" name ="search" id ="srch" placeholder="Search">
+      <button type ="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <ul>
+    <li><a href="#home">Ankündigung</a></li>
+    <li><a href="#speisen">Speisen</a></li>
+    <li><a href="#zahlen">Zahlen</a></li>
+    <li><a href="#formular">Kontakt</a></li>
+    <li><a href="#wichtig">Wichtig</a></li>
+    <li>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </li>
+  </ul>
+  <div class="menu">
+    <label for="chk1">
+      <i class="fa fa-bars"></i>
+    </label>
+  </div>
+</header>
+<img class="titelbild" src="titelbild.jpeg">
+
+<section id="home">
+<h1 id="ankündigung">Bald gibt es essen auch online ;)</h1>
+<p>Bestellen Sie zukünftig auch problemlos ihr Frühstück oder Mittagsessen bei uns in der E-Mensa</p>
+
+
+<h1 id="speisen">Unsere heutigen Speisen</h1>
+<table>
+  <tr>
+    <td colespan="2"></td>
+    <td>Preis intern</td>
+    <td>Preis extern</td>
+  </tr>
+  <tr>
+    <td colespan="2"> Spaghetti Carciofo</td>
+    <td>2,10€</td>
+    <td>3,50€</td>
+  </tr>
+  <tr>
+    <td colespan="2">Kürbis-Chia-Teller</td>
+    <td>2,70€</td>
+    <td>3,80€</td>
+  </tr>
+</table>
+  </section>
+<section id="zahlen">
+  <h1>E-Mensa in Zahlen</h1>
+  <table id="2">
+    <tr>
+      <td>X Besuche</td>
+      <td>Y Anmeldungen für den Newsletter</td>
+      <td>Z Speisen</td>
+    </tr>
+  </table>
+</section>
+
+<section id="formular">
+  <h1>Interesse geweckt? Wir informieren Sie!</h1>
+
+  <form method="post" action="formdata.html">
+    <fieldset>
+      <legend> Anmeldung </legend>
+      <label>Anrede</label> <br>
+      <label for="Herr"><input id="Herr" checked="checked" name="Anrede" type="radio" value="Herr" /> Herr</label> <br>
+      <label for="Frau"><input id="Frau" name="Anrede" type="radio" value="Frau" /> Frau</label> <br>
+      <br>
+      <label for="vornameid">Vorname<sup>*</sup></label><br>
+      <input id="vornameid" name= "name" type="text" required/> <br>
+      <br>
+      <label for="nachnameid">Nachname<sup>*</sup></label><br>
+      <input id="nachnameid" name= "name" type="text" required/> <br>
+      <br>
+      <label for="emailid"> E-Mail<sup>*</sup></label><br>
+      <input id="emailid"   type="email" required/> <br>
+      <br>
+      <label for="bi"> Benachrichtigungsintervall </label> <br>
+      <select id="bi" name="name">
+        <option value="Tag">Tag</option>
+        <option value="Woche">Woche</option>
+        <option value="Monat">Monat</option>
+      </select> <br>
+      <br>
+      <label for="Datenschutz">
+        <input id="Datenschutz" name="Infos"  type="checkbox" required/> Datenschutzhinweis gelesen<sup>*</sup></label> <br>
+      <br>
+      <input type="submit"   value="Abschicken" required/> <br>
+      <br>
+      <sup>*)</sup> Eingaben sind Pflicht
+    </fieldset>
+
+  </form>
+</section>
+<section id="wichtig">
+  <h1>Das ist uns wichtig</h1>
+  <ul>
+    <li>Beste frische saisonale Zutaten</li>
+    <li>Ausgewogene abwechsslungsreiche Gerichte</li>
+    <li>Sauberkeit</li>
+  </ul>
+  <h1>Wir freuen uns auf Ihren Besuch!</h1>
+</section>
+
+
+<footer>
+
+  <div id="impressum">
+
+    <div class="section-header">
+      <p class="section-header">Impressum</p>
+    </div>
+
+    <div class="contact-wrapper">
+
+      <ul class="contact-list">
+
+        <li class="list-item"><span class="contact-text name">Elisa Rofalski & Luca Kirchhoff</span></li>
+
+        <li class="list-item"><span class="contact-text place">Aachen, DE</span></li>
+
+        <li class="list-item"><span class="contact-text phone">555-5555</span></li>
+      </ul>
+
+      <hr>
+      <hr>
+      <br>
+      <br>
+      <div class="copyright">&copy; (c) E-Mensa GmbH ALL OF THE RIGHTS RESERVED</div>
+      <br>
+      <br>
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+
+<!--
+<footer id="Kontakt">
+  <ul>
+    <li>(c) E-Mensa GmbH</li>
+    <li> Luca Kirchhoff & Elisa Rofalski</li>
+    <li><a class="impressum" href="impressum.html">Impressum</a></li>
+  </ul>
+</footer>
+-->
+
+
+</body>
+</html>
+
+
+
+
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+  body{
+    text-align: center;
+    background-color: #D8DCE4;
+  }
+section{
+  height: 100vh;
+}
+  img.titelbild {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #home h1{
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-size: 40pt;
+  }
+
+  header{
+    width:100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 10px #000;
+    background: rgba(0,0,0,0.5);
+  }
+  #chk1{
+    display: none;
+  }
+  i{
+    color: #fff;
+    cursor: pointer;
+  }
+  header .logo{
+    flex: 1;
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  header .search-box{
+    flex: 1;
+    position: relative;
+  }
+  .search-box input{
+    width:100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background:#f2f2f2;
+    border-radius: 30px;
+    color:gray;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 40px;
+    text-align: center;
+
+  }
+
+  .search-box button{
+    flex: 1;
+    cursor: pointer;
+    width:40px;
+    height: 40px;
+    border-radius: 30px;
+    border:none;
+    position:absolute;
+    top:0;
+    right: 0;
+    transform: scale(0.9);
+    background: green;
+    color: #fff;
+  }
+  header ul {
+    flex:2;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  header ul li{
+    list-style: none;
+  }
+  header ul li a{
+    text-decoration: none;
+    color:#fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 10px 15px;
+  }
+  header ul li a:hover{
+    border-bottom: 2px solid cadetblue;
+  }
+  header .menu{
+    font-size: 2.5em;
+    display: none;
+  }
+  table{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  table, th, td {
+    border: thin solid;
+    border-collapse: collapse}
+  caption { text-align: left; }
+
+  td {
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 20pt;
+  }
+  #formular h1 {
+    font-size: 40pt;
+    margin-top: 20px;
+  }
+
+  form {
+    margin: 40px;
+  }
+  section{
+    margin: 20px;
+  }
+
+  /*footer*/
+  #impressum {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .section-header {
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0;
+    font: 300 60px 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+
+  .contact-wrapper {
+
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    max-width: 1200px;
+
+  }
+
+  /* Location, Phone*/
+  .contact-list {
+    text-align: center;
+    list-style-type: none;
+    padding-right: 20px;
+  }
+
+  .list-item {
+    line-height: 3;
+    color: #aaa;
+  }
+
+  .contact-text {
+    font: 300 18px 'Lato', sans-serif;
+    letter-spacing: 1.9px;
+    color: #bbb;
+  }
+
+  .contact-text a {
+    color: #bbb;
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+
+  .contact-text a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .copyright {
+    font: 200 14px 'Oswald', sans-serif;
+    color: #555;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, .6);
+  }
+
+  /*Media Query*/
+  @media(max-width:1000px){
+    .search-box button{
+      position: absolute;
+    }
+    header ul{
+      position: fixed;
+      top:100px;
+      right: -100%;
+      background: rgba(0,0,0,0.5);
+      height: calc(100vh - 100px);
+      width:50%;
+      flex-direction: column;
+      align-items: center;
+      transition: right 0.5s linear;
+    }
+
+    header .menu{
+      display: block;
+      width:100px;
+      text-align: center;
+    }
+    #chk1:checked ~ ul{
+      right: 0;
+
+    }
+
+  }
+
+
+</style>
