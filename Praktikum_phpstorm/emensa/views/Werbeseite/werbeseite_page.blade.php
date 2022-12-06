@@ -61,7 +61,6 @@
 
 
         @foreach($Gerichteausgabe as $value)
-
             <tr>
                 <td> {{$value['bildname']}}</td>
                 <td> {{$value['name']}}</td>
@@ -70,6 +69,40 @@
                 @endforeach
             </tr>
     </table>
+
+<hr>
+    <hr>
+
+    <h1>Interesse geweckt? Wir informieren Sie!</h1>
+    <form action="#formular" method="post">
+        <fieldset>
+            <legend> Anmeldung</legend>
+            <label>Anrede</label> <br>
+            <label for="Herr"><input id="Herr" checked="checked" name="Anrede" type="radio" value="Herr"/> Herr</label>
+            <br>
+            <label for="Frau"><input id="Frau" name="Anrede" type="radio" value="Frau"/> Frau</label> <br>
+            <br>
+            <label for="vornameid">Vorname<sup>*</sup></label><br>
+            <input id="vornameid" name="vorname" type="text" required/> <br>
+            <br>
+            <label for="nachnameid">Nachname<sup>*</sup></label><br>
+            <input id="nachnameid" name="nachname" type="text" required/> <br>
+            <br>
+            <label for="emailid"> E-Mail<sup>*</sup></label><br>
+            <input id="emailid" name="email" type="email" required/> <br>
+            <br>
+            <label for="datenschutz">
+                <input id="datenschutz" name="info" type="checkbox" required/> Datenschutzhinweis gelesen<sup>*</sup></label>
+            <br>
+            <br>
+            <input type="submit" name="senden" value="senden" required/> <br>
+            <br>
+            <sup>*)</sup> Eingaben sind Pflicht
+        </fieldset>
+        <br>
+        <br>
+
+
 @endsection
 
 @section('Galerie')

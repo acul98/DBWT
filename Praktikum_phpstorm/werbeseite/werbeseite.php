@@ -129,7 +129,6 @@ session_start();
 <!-- Formular -->
 <section id="formular">
     <h1>Interesse geweckt? Wir informieren Sie!</h1>
-
     <form action="#formular" method="post">
         <fieldset>
             <legend> Anmeldung</legend>
