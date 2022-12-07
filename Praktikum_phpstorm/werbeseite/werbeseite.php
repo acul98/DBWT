@@ -66,7 +66,7 @@ session_start();
     $link = mysqli_connect(
             "localhost",           // Host der Datenbank
             "root",                // Benutzername zur Anmeldung
-            "Isenbruch9",          // Passwort
+            "Passwort",          // Passwort
             "emensawerbeseite"     // Auswahl der Datenbanken (bzw. des Schemas)
                                             // optional port der Datenbank
     );
@@ -256,6 +256,7 @@ echo '<p>' . "Anzahl der Gerichte: " . $counter . '</p>' . '<br>';
 
         <!-- Ausgabe Anzahl der Newsletteranmeldungen -->
         <?php
+                                                     /* Cross-Site Scripting (XSS) */
         echo '<p>' . "Newsletteranmeldungen: " . htmlspecialchars($_SESSION['ausgabecount']). '</p>';
         ?>
     <hr>

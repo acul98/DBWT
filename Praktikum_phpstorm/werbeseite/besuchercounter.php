@@ -5,7 +5,7 @@ function besucher($record) {
    //notwendige Parameter für die Initialisierung der Datenbank
     $db_host = "localhost";
     $db_username = "root";
-    $db_password = "Isenbruch9";
+    $db_password = "Passwort";
     $db_name = "emensawerbeseite";
     $db_table = "besucherzaehler";
     $counter_page = "access_page";
@@ -15,7 +15,7 @@ function besucher($record) {
     $db = mysqli_connect ($db_host, $db_username, $db_password, $db_name)
     or die("Host oder Datenbank nicht erreichbar");
 
-    //security
+    //security -- Gegenmaßnahme - Eingabemaskierung
     $counter_page = mysqli_real_escape_string($db, $counter_page);
 
     //Insert...ON DUPLICATE KEY UPDATE sorgt in kombination dafür das der Counter wie gewünscht aktualisiert wird wenn die Datenbank bereits existiert
