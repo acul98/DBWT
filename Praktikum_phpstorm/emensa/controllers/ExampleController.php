@@ -9,7 +9,7 @@ class ExampleController
 {
     public function m4_7a_queryparameter(RequestData $rd)
     {
-        $name = $rd->query['name'] ?? 'E-Mensa Werbeseite';
+        $name = $rd->query['name'] ?? 'E-Mensa Werbeseite';  /* hat $name = $rd->query['name'] einen Wert/Imhalt wird E-Mensa Werbeseite ignoriert ansonsten $name= E-Mensa Werbeseite */
         return view('examples.m4_7a_queryparameter', [
             'name' => $name
         ]);
