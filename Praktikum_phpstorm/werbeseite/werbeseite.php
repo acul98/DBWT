@@ -257,7 +257,7 @@ echo '<p>' . "Anzahl der Gerichte: " . $counter . '</p>' . '<br>';
         <!-- Ausgabe Anzahl der Newsletteranmeldungen -->
         <?php
                                                      /* Cross-Site Scripting (XSS) */
-        echo '<p>' . "Newsletteranmeldungen: " . htmlspecialchars($_SESSION['ausgabecount']). '</p>';
+        echo '<p>' . "Newsletteranmeldungen: " . $_SESSION['ausgabecount'] . '</p>';
         ?>
     <hr>
     <hr>

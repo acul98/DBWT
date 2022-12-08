@@ -17,7 +17,7 @@
     <fieldset>
         <legend>Ihr Wunschgericht</legend>
         <label for="nameid">Name<sup>*</sup></label><br>
-        <input id="nameid" name="Name" type="text" required/> <br>
+        <input id="nameid" name="Name" type="text" /> <br>
         <br>
         <label for="emailid"> E-Mail<sup>*</sup></label><br>
         <input id="emailid" name="email" type="email" required/> <br>
