@@ -72,6 +72,7 @@
 
 <hr>
     <hr>
+    <hr>
 
     <h1>Interesse geweckt? Wir informieren Sie!</h1>
     <form action="#formular" method="post">
