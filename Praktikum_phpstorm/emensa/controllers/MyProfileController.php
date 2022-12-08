@@ -6,7 +6,7 @@ class MyProfileController
     public function index(RequestData $rd) {
         if (!isset($_SESSION['login_ok'])) {
             $_SESSION['target'] = '/myprofile';
-            header('Location: login');
+            header('Location: anmeldung');
             return;
         }
 // Zeige Profildaten an.
