@@ -18,7 +18,8 @@ return array(
     '/m4_7c_gerichte' => 'ExampleController@m4_7c_gerichte',
     '/m4_7d_layout'     => 'ExampleController@Seitenauswahl_7d',
     '/werbeseite'     => 'HomeController@index',
-    '/anmeldung'     => 'ExampleController@anmeldung',
+    '/anmeldung'     => 'AuthController@anmeldung',
+    '/anmeldung'     => 'AuthController@check',
 
 
 

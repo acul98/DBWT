@@ -16,4 +16,5 @@ class HomeController
         $data = Gerichteausgabe();
         return view('Werbeseite.werbeseite_page', ['Gerichteausgabe' =>$data]);
     }
+
 }

@@ -14,3 +14,16 @@ function db_kategorie_select_all() {
     return $data;
 }
 
+
+function db_benutzer_select_all() {
+    $link = connectdb();
+
+    $sql = "UPDATE benutzer SET anzahlanmeldungen";
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+    mysqli_close($link);
+    return $data;
+}
+

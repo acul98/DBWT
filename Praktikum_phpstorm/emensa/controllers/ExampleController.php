@@ -64,10 +64,7 @@ class ExampleController
     }
 
 
-    public function anmeldung(RequestData $data) {
 
-        return view('Werbeseite.anmeldung', []);
-    }
 
 
 }
