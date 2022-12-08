@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<form action="/anmeldung_verifizieren" method="post">
+<form action="/anmeldung" method="post">
     E-Mail:<br>
     <input type="email" size="40" maxlength="250" name="email"><br><br>
 
