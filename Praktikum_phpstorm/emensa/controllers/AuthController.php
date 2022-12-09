@@ -34,6 +34,7 @@ class AuthController
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
                       $_SESSION['login_result_message'] = null;
                       $_SESSION['login_ok'] = true;
+                      $_SESSION['nutzer'] = $e['name'];
                       header('Location: /werbeseite');
                     }
                 }

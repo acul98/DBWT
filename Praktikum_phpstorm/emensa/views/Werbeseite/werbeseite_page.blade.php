@@ -20,6 +20,7 @@
             <li><a href="#Galerie">Galerie</a></li>
             <li><a href="#Kontakt">Kontakt</a></li>
             <li><a href="/anmeldung">Anmeldung</a></li>
+            <li style="color: #ffffff; text-transform: uppercase;">@if(isset($_SESSION['nutzer'])) {{  $_SESSION['nutzer'] }} @endif</li>
 
             <li>
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -62,7 +63,7 @@
 
         @foreach($Gerichteausgabe as $value)
             <tr>
-                <td> {{$value['bildname']}}</td>
+                <td> <img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
                 <td> {{$value['name']}}</td>
                 <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                 <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
