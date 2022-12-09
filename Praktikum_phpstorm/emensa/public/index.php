@@ -281,4 +281,4 @@ function view($viewname, $viewargs = array())
 }
 
 
-session_destroy();
+//session_destroy();

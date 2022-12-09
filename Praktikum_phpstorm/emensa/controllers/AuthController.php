@@ -16,36 +16,58 @@ class AuthController
         $email = $rd->query['email'] ?? false;
         $password = $rd->query['password'] ?? false;
 
-        $password_db = db_select_password_user();
-        $email_db= db_select_email_user();
+        $benutzer_db = db_select_benutzer();
+
+        /*$password_db = db_select_password_user();
+        $email_db= db_select_email_user();*/
 
         $salt = 'dbwt';
-        $paswword_userinput= sha1($salt . $password);
+        $password_userinput= sha1($salt . $password);
 
         $password_check = false;
         $email_check = false;
 
-        foreach ($password_db as $p)
-        {
-            if($p === $paswword_userinput)
-            {
-                $password_check = true;
+
+        foreach ($benutzer_db as $e){
+            if($e['email'] === $email){
+                if($e['passwort'] === $password_userinput){
+                    //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
+                      $_SESSION['login_result_message'] = null;
+                      $_SESSION['login_ok'] = true;
+                      header('Location: /werbeseite');
+                    }
+                }
+            else {
+                //counter +1
+                $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
+                header('Location: /anmeldung');
             }
         }
-
+    }
+/*
         foreach ($email_db as $e)
         {
             if($e === $email)
             {
                 $password_check = true;
+
+                foreach ($password_db as $p)
+                {
+                    if($p === $paswword_userinput)
+                    {
+                        $password_check = true;
+                    }
+                }
             }
         }
+
+
 
         $_SESSION['login_result_message'] = null;
         if ($password_check == true && $email_check == true) {
             $_SESSION['login_ok'] = true;
-            $target = $_SESSION['target'];
-            header('Location: /' . $target);
+
+            header('Location: /werbeseite');
         } else {
             $_SESSION['login_result_message'] =
                 'Name oder Passwort falsch';
@@ -53,6 +75,7 @@ class AuthController
         }
 
     }
+*/
 
 
 }
