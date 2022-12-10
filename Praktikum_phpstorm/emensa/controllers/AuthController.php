@@ -22,6 +22,7 @@ class AuthController
         $password_userinput= sha1($salt . $password);
 
         foreach ($benutzer_db as $e){
+
             if($e['email'] === $email){
                 if($e['passwort'] === $password_userinput){
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
@@ -36,14 +37,26 @@ class AuthController
                       $link = connectdb();
                       $anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
                       $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
+
+                      $letzteanmeldung = date('Y-m-d H:i:s');
+                      $letzteanmeldungsetzten = "UPDATE benutzer SET letzteanmeldung='$letzteanmeldung' WHERE email = '$email'";
+                      $resultletzteanmeldungsetzten = mysqli_query($link, $letzteanmeldungsetzten);
                       mysqli_close($link);
 
 
                       header('Location: /werbeseite'); //zurück auf die Werbeseite
                     }
+                else {
+                    $link = connectdb();
+                    $letzterfehler = date('Y-m-d H:i:s');
+                    $letzterfehlersetzten = "UPDATE benutzer SET letzterfehler='$letzterfehler' WHERE email = '$email'";
+                    $resultletzterfehlersetzten = mysqli_query($link, $letzterfehlersetzten);
+
+                    $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
+                    header('Location: /anmeldung'); //zurück zur anmeldemaske
+                }
                 }
             else {
-
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                 header('Location: /anmeldung'); //zurück zur anmeldemaske
             }
