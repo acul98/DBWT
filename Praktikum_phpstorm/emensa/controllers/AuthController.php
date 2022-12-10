@@ -52,7 +52,7 @@ class AuthController
                     }
                 else {
                     $link = connectdb();
-                    //mysqli_begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
+                    
                     $letzterfehler = date('Y-m-d H:i:s');
                     $link->begin_transaction();
                     $letzterfehlersetzten = "UPDATE benutzer SET letzterfehler='$letzterfehler' WHERE email = '$email'";
