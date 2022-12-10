@@ -8,5 +8,5 @@ CREATE VIEW view_anmeldungen AS
 
 CREATE VIEW view_kategoriegerichte_vegetarisch AS
     SELECT k.name, g.id, g.name AS Gericht FROM kategorie k
-    RIGHT JOIN gericht g ON k.id = g.id
+    LEFT JOIN gericht g ON k.id = g.id
     WHERE g.vegetarisch = '1';
