@@ -35,12 +35,16 @@ class AuthController
                       $counter = $_SESSION['counter'];
                       //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
                       $link = connectdb();
+                      $link->begin_transaction();
                       $anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
                       $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
+                      $link->commit();
 
                       $letzteanmeldung = date('Y-m-d H:i:s');
+                      $link->begin_transaction();
                       $letzteanmeldungsetzten = "UPDATE benutzer SET letzteanmeldung='$letzteanmeldung' WHERE email = '$email'";
                       $resultletzteanmeldungsetzten = mysqli_query($link, $letzteanmeldungsetzten);
+                      $link->commit();
                       mysqli_close($link);
 
 
@@ -48,10 +52,12 @@ class AuthController
                     }
                 else {
                     $link = connectdb();
+                    //mysqli_begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
                     $letzterfehler = date('Y-m-d H:i:s');
+                    $link->begin_transaction();
                     $letzterfehlersetzten = "UPDATE benutzer SET letzterfehler='$letzterfehler' WHERE email = '$email'";
                     $resultletzterfehlersetzten = mysqli_query($link, $letzterfehlersetzten);
-
+                    $link->commit();
                     $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                     header('Location: /anmeldung'); //zurück zur anmeldemaske
                 }
