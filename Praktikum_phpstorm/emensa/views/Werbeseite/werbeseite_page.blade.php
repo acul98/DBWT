@@ -20,7 +20,7 @@
             <li><a href="#Galerie">Galerie</a></li>
             <li><a href="#Kontakt">Kontakt</a></li>
             <li><a href="/anmeldung">Anmeldung</a></li>
-            <li style="color: #ffffff; text-transform: uppercase;">@if(isset($_SESSION['nutzer'])) {{  $_SESSION['nutzer'] }} @endif</li>
+            <li style="color: #ffffff; text-transform: uppercase;">Angemeldet als: @if(isset($_SESSION['nutzer'])) {{  $_SESSION['nutzer'] }} @endif</li>
 
             <li>
                 <a href="#"><i class="fa fa-facebook"></i></a>

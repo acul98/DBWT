@@ -18,15 +18,8 @@ class AuthController
 
         $benutzer_db = db_select_benutzer();
 
-        /*$password_db = db_select_password_user();
-        $email_db= db_select_email_user();*/
-
         $salt = 'dbwt';
         $password_userinput= sha1($salt . $password);
-
-        $password_check = false;
-        $email_check = false;
-
 
         foreach ($benutzer_db as $e){
             if($e['email'] === $email){
@@ -34,50 +27,27 @@ class AuthController
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
                       $_SESSION['login_result_message'] = null;
                       $_SESSION['login_ok'] = true;
-                      $_SESSION['nutzer'] = $e['name'];
-                      header('Location: /werbeseite');
+                      $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
+
+                      /*
+                      $_SESSION['counter']+=1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
+                      $counter = $_SESSION['counter'];
+                      //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
+                      $link = connectdb();
+                      $anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE name = $email";
+                      $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
+                      mysqli_close($link);
+                      */
+
+                      header('Location: /werbeseite'); //zurück auf die Werbeseite
                     }
                 }
             else {
-                //counter +1
+
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
-                header('Location: /anmeldung');
+                header('Location: /anmeldung'); //zurück zur anmeldemaske
             }
         }
     }
-/*
-        foreach ($email_db as $e)
-        {
-            if($e === $email)
-            {
-                $password_check = true;
-
-                foreach ($password_db as $p)
-                {
-                    if($p === $paswword_userinput)
-                    {
-                        $password_check = true;
-                    }
-                }
-            }
-        }
-
-
-
-        $_SESSION['login_result_message'] = null;
-        if ($password_check == true && $email_check == true) {
-            $_SESSION['login_ok'] = true;
-
-            header('Location: /werbeseite');
-        } else {
-            $_SESSION['login_result_message'] =
-                'Name oder Passwort falsch';
-            header('Location: /anmeldung');
-        }
-
-    }
-*/
-
-
 }
 
