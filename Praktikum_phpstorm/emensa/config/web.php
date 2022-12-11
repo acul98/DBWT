@@ -19,8 +19,9 @@ return array(
     '/m4_7d_layout'     => 'ExampleController@Seitenauswahl_7d',
     '/werbeseite'     => 'HomeController@index',
     '/anmeldung'     => 'AuthController@anmeldung',
-    '/anmeldung_verifizieren'     => 'AuthController@check',
+    '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
     '/log'     => 'ExampleController@log',
+    '/abmeldung'     => 'AuthController@abmeldung',
 
 
 

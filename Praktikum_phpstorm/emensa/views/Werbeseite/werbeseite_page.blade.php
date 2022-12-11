@@ -19,9 +19,6 @@
             <li><a href="#speisen">Speisen</a></li>
             <li><a href="#Galerie">Galerie</a></li>
             <li><a href="#Kontakt">Kontakt</a></li>
-            <li><a href="/anmeldung">Anmeldung</a></li>
-            <li style="color: #ffffff; text-transform: uppercase;">@if(isset($_SESSION['nutzer'])) Angemeldet als: {{  $_SESSION['nutzer'] }} @endif</li>
-
             <li>
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
@@ -34,6 +31,7 @@
         </div>
     </header>
 @endsection
+
 
 @section('home')
     <div id="home">
@@ -50,6 +48,23 @@
             Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit.</p>
     </div>
 @endsection
+
+@section('Anmelden')
+    <h1 id="anundabmelden">Schon angemeldet ?</h1>
+    @if(isset($_SESSION['nutzer']))
+        <section style="font-size: 20pt; font-family: Verdana;">
+            Sie sind angemeldet als: {{$_SESSION['nutzer']}}
+            <br>
+            <a href="/abmeldung">Hier</a> klicken, um sich abzumelden.
+        </section>
+    @else
+        <section  style="font-size: 20pt; font-family: Verdana;">
+            <a href="/anmeldung">Hier</a> klicken, um sich anzumelden.
+        </section>
+    @endif
+
+@endsection
+
 
 @section('main')
     <h1 id="speisen">Unsere heutigen Speisen</h1>

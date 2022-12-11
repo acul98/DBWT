@@ -11,7 +11,15 @@ class AuthController
         return view('Werbeseite.anmeldung', ['msg' => $msg]);
     }
 
-    function check (RequestData $rd)
+
+    public function abmeldung() {
+        session_destroy();
+        //logger()->info('Abmeldung um diese Zeit: ' . date('d-m-Y h:i:s a', time()));
+        header('Location: /werbeseite');
+    }
+
+
+    function anmeldung_verifizieren (RequestData $rd)
     {
         $email = $rd->query['email'] ?? false;
         $password = $rd->query['password'] ?? false;
@@ -52,7 +60,7 @@ class AuthController
                     }
                 else {
                     $link = connectdb();
-                    
+
                     $letzterfehler = date('Y-m-d H:i:s');
                     $link->begin_transaction();
                     $letzterfehlersetzten = "UPDATE benutzer SET letzterfehler='$letzterfehler' WHERE email = '$email'";

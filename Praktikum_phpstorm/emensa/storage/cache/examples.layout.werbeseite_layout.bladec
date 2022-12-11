@@ -14,6 +14,9 @@
  <div class="home">
  <?php echo $this->yieldContent('home'); ?>
  </div>
+ <div id="anmeldung">
+ <?php echo $this->yieldContent('Anmelden'); ?>
+ </div>
  <div class="main">
  <?php echo $this->yieldContent('main'); ?>
  </div>

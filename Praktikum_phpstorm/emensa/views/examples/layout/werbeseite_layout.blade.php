@@ -14,6 +14,9 @@
     <div class="home">
         @yield('home')
     </div>
+    <div id="anmeldung">
+        @yield('Anmelden')
+    </div>
     <div class="main">
         @yield('main')
     </div>
