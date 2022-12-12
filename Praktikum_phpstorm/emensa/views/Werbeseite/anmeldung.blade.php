@@ -16,7 +16,7 @@
 </form>
 <div>
     @if (isset($msg))
-        {{ $msg}}
+        {{$msg}}
     @endif
 </div>
 </body>

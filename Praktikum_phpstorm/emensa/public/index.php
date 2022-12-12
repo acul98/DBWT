@@ -1,11 +1,16 @@
 <?php
  session_start();
 
-
 const VERBOSITY = 0;
 const PUBLIC_DIRNAME = "public";
 const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
+
+
+
+
+
+
 
 // DEMO
 try {
@@ -281,4 +286,3 @@ function view($viewname, $viewargs = array())
 }
 
 
-//session_destroy();

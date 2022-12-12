@@ -68,6 +68,7 @@ class ExampleController
         return view('examples.Werbeseite.werbeseite_page', []);
     }
 
+
     public function log()
     {
 
