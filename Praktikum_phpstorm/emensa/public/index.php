@@ -7,9 +7,27 @@ const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
 
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
+/*
+$log=NULL;
 
+function log()
+{
+    global $log;
 
+    if($log == null)
+    {
+        $log = new Logger ('name');
+
+        $log->pushHandler(new StreamHandler('../storage/log.txt', Logger::INFO));
+    }
+    return $log;
+}
+
+*/
 
 
 // DEMO
@@ -96,6 +114,22 @@ class RequestData
 
 class FrontController
 {
+/*
+    public function log()
+    {
+
+        $log = new Logger('name');
+        $log->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
+
+        $log->info('An- und Abmeldung');
+        $log->warning('fehlgeschlagene Anmeldung');
+        $log->error('Zugriff auf Hauptseite');
+
+        echo "Geschrieben!";
+
+    }
+*/
+
 
     public static function handleRequest($url, $method = 'GET', $verbosity = 0, $configPath = CONFIG_WEBROUTES)
     {

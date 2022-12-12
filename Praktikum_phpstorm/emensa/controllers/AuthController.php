@@ -1,5 +1,6 @@
 <?php
 require_once ('../models/benutzer.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
 
 
 class AuthController
@@ -33,6 +34,7 @@ class AuthController
 
             if($e['email'] === $email){
                 if($e['passwort'] === $password_userinput){
+                   // log()->info('An- und Abmeldung');
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
                       $_SESSION['login_result_message'] = null;
                       $_SESSION['login_ok'] = true;
