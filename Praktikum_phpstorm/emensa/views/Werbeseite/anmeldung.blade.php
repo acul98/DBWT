@@ -4,9 +4,10 @@
     <title>Anmeldung</title>
 </head>
 <body>
+<img src="img/titelbild.jpeg">
 
 <form action="/anmeldung_verifizieren" method="post">
-    E-Mail:<br>
+     E-Mail:<br>
     <input type="email" size="40" maxlength="250" name="email" required><br><br>
 
     Dein Passwort:<br>
@@ -23,12 +24,17 @@
 </html>
 
 <style>
+
+    img{
+        width: 100%;
+        height: 100vh;
+    }
     body{
         margin-top: 100px;
         text-align: center;
         font-family: Arial;
         color: white;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(titelbild.jpeg);
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
         background-position: center center;
         background-size: cover;
         background-attachment: fixed;
