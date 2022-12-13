@@ -2,8 +2,6 @@
 require_once ('../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
 
-
-
 class AuthController
 {
 
@@ -42,15 +40,17 @@ class AuthController
                       $_SESSION['login_ok'] = true;
                       $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
 
-
                       $_SESSION['counter']+=1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
                       $counter = $_SESSION['counter'];
+                      $email_db = $e['email'];
                       //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
                       $link = connectdb();
-                      $link->begin_transaction();
-                      $anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
-                      $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
-                      $link->commit();
+                      //$link->begin_transaction();
+                      "CAll anzahlanmedlungen ($email_db)";
+
+                      //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
+                      // $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
+                      // $link->commit();
 
                       $letzteanmeldung = date('Y-m-d H:i:s');
                       $link->begin_transaction();
