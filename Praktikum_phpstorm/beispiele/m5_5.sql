@@ -3,3 +3,4 @@ CREATE PROCEDURE anzahlanmedlungen (
 BEGIN
     UPDATE benutzer SET anzahlanmeldungen += 1 WHERE id = id_benutzer;
 end;
+
