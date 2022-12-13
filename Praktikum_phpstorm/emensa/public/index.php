@@ -6,12 +6,12 @@ const PUBLIC_DIRNAME = "public";
 const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
 
-
+/*
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-/*
+
 $log=NULL;
 
 function log()
@@ -114,7 +114,8 @@ class RequestData
 
 class FrontController
 {
-/*
+
+    /*
     public function log()
     {
 
