@@ -61,7 +61,8 @@ class AuthController
 
 
                       header('Location: /werbeseite'); //zurück auf die Werbeseite
-                      logger()->info('Anmeldung');
+                      logger()->info('Anmeldung erfolgreich');
+                      logger()->info('Weiterleitung auf Hauptseite nach Anmeldung');
                     }
                 else {
                     $link = connectdb();
@@ -73,13 +74,13 @@ class AuthController
                     $link->commit();
                     $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                     header('Location: /anmeldung'); //zurück zur anmeldemaske
-                    logger()->info('fehlgeschlagene Anmeldung');
+                    logger()->warning('fehlgeschlagene Anmeldung');
                 }
                 }
             else {
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                 header('Location: /anmeldung'); //zurück zur anmeldemaske
-                logger()->info('fehlgeschlagene Anmeldung');
+                logger()->warning('fehlgeschlagene Anmeldung');
             }
         }
     }

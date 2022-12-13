@@ -20,7 +20,7 @@ function logger()
 
     if($logger == null)
     {
-        $logger = new Log ('name');
+        $logger = new Logger ('name');
 
         $logger->pushHandler(new StreamHandler('../storage/info.log', Logger::INFO));
         $logger->pushHandler(new StreamHandler('../storage/info.log', Logger::WARNING));
