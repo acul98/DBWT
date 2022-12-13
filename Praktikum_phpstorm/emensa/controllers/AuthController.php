@@ -3,6 +3,7 @@ require_once ('../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
 
 
+
 class AuthController
 {
 

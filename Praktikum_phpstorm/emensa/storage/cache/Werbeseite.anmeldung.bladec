@@ -5,7 +5,7 @@
 </head>
 <body>
 <img src="img/titelbild.jpeg">
-Bitte geben Sie hier Ihre Daten ein
+
 <form action="/anmeldung_verifizieren" method="post">
  E-Mail:<br>
  <input type="email" size="40" maxlength="250" name="email" required><br><br>
