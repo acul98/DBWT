@@ -21,3 +21,18 @@
 </div>
 </body>
 </html>
+
+<style>
+    body{
+        margin-top: 100px;
+        text-align: center;
+        font-family: Arial;
+        color: white;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(titelbild.jpeg);
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 100%;
+    }
+
+</style>
