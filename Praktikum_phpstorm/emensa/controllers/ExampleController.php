@@ -3,11 +3,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/../models/kategorie.php');
 require_once ('../models/gericht.php');
 require_once ('../models/kategorie.php');
 
-
+/*
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-
+*/
 
 class ExampleController
 
@@ -70,7 +70,7 @@ class ExampleController
         return view('examples.Werbeseite.werbeseite_page', []);
     }
 
-
+/*
     public function log()
     {
 
@@ -85,5 +85,5 @@ class ExampleController
 
 
     }
-
+*/
 }

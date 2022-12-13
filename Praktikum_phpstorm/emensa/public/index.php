@@ -6,28 +6,29 @@ const PUBLIC_DIRNAME = "public";
 const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
 
-/*
+
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 
-$log=NULL;
+$logger=NULL;
 
-function log()
+function logger()
 {
-    global $log;
+    global $logger;
 
-    if($log == null)
+    if($logger == null)
     {
-        $log = new Logger ('name');
+        $logger = new Log ('name');
 
-        $log->pushHandler(new StreamHandler('../storage/log.txt', Logger::INFO));
+        $logger->pushHandler(new StreamHandler('../storage/info.log', Logger::INFO));
+        $logger->pushHandler(new StreamHandler('../storage/info.log', Logger::WARNING));
     }
-    return $log;
+    return $logger;
 }
 
-*/
+
 
 
 // DEMO
@@ -115,21 +116,6 @@ class RequestData
 class FrontController
 {
 
-    /*
-    public function log()
-    {
-
-        $log = new Logger('name');
-        $log->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
-
-        $log->info('An- und Abmeldung');
-        $log->warning('fehlgeschlagene Anmeldung');
-        $log->error('Zugriff auf Hauptseite');
-
-        echo "Geschrieben!";
-
-    }
-*/
 
 
     public static function handleRequest($url, $method = 'GET', $verbosity = 0, $configPath = CONFIG_WEBROUTES)

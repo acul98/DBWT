@@ -20,7 +20,7 @@ return array(
     '/werbeseite'     => 'HomeController@index',
     '/anmeldung'     => 'AuthController@anmeldung',
     '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
-    '/log'     => 'ExampleController@log',
+
     '/abmeldung'     => 'AuthController@abmeldung',
 
 

@@ -16,8 +16,8 @@ class AuthController
 
     public function abmeldung() {
         session_destroy();
-        //logger()->info('Abmeldung um diese Zeit: ' . date('d-m-Y h:i:s a', time()));
         header('Location: /werbeseite');
+        logger()->info('Abmeldung');
     }
 
 
@@ -61,7 +61,7 @@ class AuthController
 
 
                       header('Location: /werbeseite'); //zurück auf die Werbeseite
-                      log()->info('An- und Abmeldung');
+                      logger()->info('Anmeldung');
                     }
                 else {
                     $link = connectdb();
@@ -73,11 +73,13 @@ class AuthController
                     $link->commit();
                     $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                     header('Location: /anmeldung'); //zurück zur anmeldemaske
+                    logger()->info('fehlgeschlagene Anmeldung');
                 }
                 }
             else {
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                 header('Location: /anmeldung'); //zurück zur anmeldemaske
+                logger()->info('fehlgeschlagene Anmeldung');
             }
         }
     }
