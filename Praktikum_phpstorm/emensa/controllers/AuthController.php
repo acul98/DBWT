@@ -36,6 +36,7 @@ class AuthController
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
 
 
+
                       $_SESSION['login_result_message'] = null;
                       $_SESSION['login_ok'] = true;
                       $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
@@ -46,7 +47,9 @@ class AuthController
                       //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
                       $link = connectdb();
                       //$link->begin_transaction();
-                      "CAll anzahlanmedlungen ($email_db)";
+
+                    $id = id_finden($email_db);
+                    anzahlanmeldungen($id);
 
                       //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
                       // $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);

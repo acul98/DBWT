@@ -4,7 +4,7 @@
  <title>Anmeldung</title>
 </head>
 <body>
-<img src="img/titelbild.jpeg">
+<!--<img src="img/titelbild.jpeg">-->
 
 <form action="/anmeldung_verifizieren" method="post">
  E-Mail:<br>
@@ -25,7 +25,6 @@
 </html>
 
 <style>
-
  img{
  width: 100%;
  height: 100vh;
