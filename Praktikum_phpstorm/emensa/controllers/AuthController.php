@@ -46,14 +46,14 @@ class AuthController
                       $email_db = $e['email'];
                       //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
                       $link = connectdb();
-                      //$link->begin_transaction();
+                      $link->begin_transaction();
 
-                    $id = id_finden($email_db);
-                    anzahlanmeldungen($id);
+                      $id = id_finden($email_db);
+                      anzahlanmeldungen($id);
 
                       //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
                       // $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
-                      // $link->commit();
+                      $link->commit();
 
                       $letzteanmeldung = date('Y-m-d H:i:s');
                       $link->begin_transaction();
