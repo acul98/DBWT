@@ -78,11 +78,18 @@
 
         @foreach($Gerichteausgabe as $value)
             <tr>
-                <td> <img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                @if($value['bildname'] != NULL)
+                <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                    <td> {{$value['name']}}</td>
+                    <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                    <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                @else
+                    <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
                 <td> {{$value['name']}}</td>
                 <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                 <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                @endforeach
+                @endif
+                    @endforeach
             </tr>
     </table>
 
