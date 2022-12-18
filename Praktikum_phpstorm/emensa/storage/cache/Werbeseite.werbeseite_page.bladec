@@ -19,6 +19,7 @@
  <li><a href="#speisen">Speisen</a></li>
  <li><a href="#Galerie">Galerie</a></li>
  <li><a href="#Kontakt">Kontakt</a></li>
+ <li><a href="/registrierung">Registrierung</a></li>
  <li>
  <a href="#"><i class="fa fa-facebook"></i></a>
  <a href="#"><i class="fa fa-instagram"></i></a>
@@ -102,7 +103,7 @@
  <h1>Interesse geweckt? Wir informieren Sie!</h1>
  <form action="#formular" method="post">
  <fieldset>
- <legend> Anmeldung</legend>
+ <legend>Anmeldung </legend>
  <label>Anrede</label> <br>
  <label for="Herr"><input id="Herr" checked="checked" name="Anrede" type="radio" value="Herr"/> Herr</label>
  <br>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anmeldung</title>
+    <title>Registrierung</title>
 </head>
 <body>
-<!--<img src="img/titelbild.jpeg">-->
 
-<form action="/anmeldung_verifizieren" method="post">
-     E-Mail:<br>
+
+<form action="/registrierung_verifizieren" method="post">
+
+    Name:<br>
+    <input type="name" size="40" maxlength="250" name="name" required><br><br>
+
+    E-Mail:<br>
     <input type="email" size="40" maxlength="250" name="email" required><br><br>
 
     Dein Passwort:<br>
@@ -16,13 +20,9 @@
     <input type="submit" value="Abschicken">
 </form>
 
-<p> noch nicht Registriert ?</p>
-<a href="/registrierung">Hier</a> klicken, um sich zu registrieren.
-
-
 <div>
-    @if (isset($msg))
-        {{$msg}}
+    @if (isset($rrm))
+        {{$rrm}}
     @endif
 </div>
 </body>

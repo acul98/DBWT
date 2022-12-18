@@ -5,6 +5,51 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
 class AuthController
 {
 
+    public function registrierung(RequestData $rd)
+    {
+        $rrm = $_SESSION['registrierung_result_message'] ?? null;
+        return view('Werbeseite.registrierung', ['rrm' => $rrm]);
+    }
+
+    function registrierung_verifizieren (RequestData $rd)
+    {
+        $name = $rd->query['name'] ?? false;
+        $email = $rd->query['email'] ?? false;
+        $password = $rd->query['password'] ?? false;
+
+        $benutzer_db = db_select_benutzer();
+
+        $salt = 'dbwt';
+        $password_userinput = sha1($salt . $password);
+
+        foreach ($benutzer_db as $e) {
+            if ($e['name'] != $name && $e['email'] != $email && $e['passwort'] != $password_userinput) {
+                $_SESSION['registrierung_result_message'] = null;
+                $_SESSION['registrierung_ok'] = true;
+
+
+                $link = connectdb();
+                $link->begin_transaction();
+                $registrierung = "INSERT INTO benutzer (id,name,email,passwort) VALUES ('$name','$email','$password')";
+                $resultletzteanmeldungsetzten = mysqli_query($link, $registrierung);
+                $link->commit();
+                mysqli_close($link);
+
+
+                header('Location: /werbeseite'); //zurück auf die Werbeseite
+                logger()->info('Registrierung erfolgreich');
+                logger()->info('Weiterleitung auf Hauptseite nach Registrierung');
+            } else {
+                $_SESSION['login_result_message'] = 'Name, Email oder Passwort existiert bereits';
+                header('Location: /registrierung'); //zurück zur anmeldemaske
+                logger()->warning('fehlgeschlagene Registrierung');
+            }
+        }
+    }
+
+
+
+
     public function anmeldung(RequestData $rd)
     {
         $msg = $_SESSION['login_result_message'] ?? null;

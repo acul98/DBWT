@@ -18,6 +18,8 @@ return array(
     '/m4_7c_gerichte' => 'ExampleController@m4_7c_gerichte',
     '/m4_7d_layout'     => 'ExampleController@Seitenauswahl_7d',
     '/werbeseite'     => 'HomeController@index',
+    '/registrierung'     => 'AuthController@registrierung',
+    '/registrierung_verifizieren'     => 'AuthController@registrierung_verifizieren',
     '/anmeldung'     => 'AuthController@anmeldung',
     '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
 
