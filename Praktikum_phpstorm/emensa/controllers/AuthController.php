@@ -30,8 +30,8 @@ class AuthController
 
                 $link = connectdb();
                 $link->begin_transaction();
-                $registrierung = "INSERT INTO benutzer (id,name,email,passwort) VALUES ('$name','$email','$password')";
-                $resultletzteanmeldungsetzten = mysqli_query($link, $registrierung);
+                $registrierung = "INSERT INTO benutzer (id,name,email,passwort,admin) VALUES ('$name','$email','$password',0)";
+                $resultletzteregistrierung = mysqli_query($link, $registrierung);
                 $link->commit();
                 mysqli_close($link);
 
@@ -40,7 +40,7 @@ class AuthController
                 logger()->info('Registrierung erfolgreich');
                 logger()->info('Weiterleitung auf Hauptseite nach Registrierung');
             } else {
-                $_SESSION['login_result_message'] = 'Name, Email oder Passwort existiert bereits';
+                $_SESSION['registrierung_result_message'] = 'Name, Email oder Passwort existiert bereits';
                 header('Location: /registrierung'); //zurück zur anmeldemaske
                 logger()->warning('fehlgeschlagene Registrierung');
             }

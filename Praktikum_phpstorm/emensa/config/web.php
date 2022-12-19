@@ -22,7 +22,6 @@ return array(
     '/registrierung_verifizieren'     => 'AuthController@registrierung_verifizieren',
     '/anmeldung'     => 'AuthController@anmeldung',
     '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
-
     '/abmeldung'     => 'AuthController@abmeldung',
 
 
