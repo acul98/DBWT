@@ -31,7 +31,7 @@ class AuthController
 
                 $link = connectdb();
                 $link->begin_transaction();
-                $registrierung = "INSERT INTO benutzer (id,name,email,passwort,admin) VALUES ('$name','$email','$password',0)";
+                $registrierung = "INSERT INTO benutzer (name,email,passwort,admin,anzahlfehler,anzahlanmeldungen) VALUES ('$name','$email','$password_userinput',false,0,0)";
                 $resultletzteregistrierung = mysqli_query($link, $registrierung);
                 $link->commit();
                 mysqli_close($link);
