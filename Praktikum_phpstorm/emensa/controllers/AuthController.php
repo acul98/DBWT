@@ -23,7 +23,8 @@ class AuthController
         $password_userinput = sha1($salt . $password);
 
         foreach ($benutzer_db as $e) {
-            if ($e['name'] != $name && $e['email'] != $email && $e['passwort'] != $password_userinput) {
+            if ($e['name'] != $name && $e['email'] != $email && $e['passwort'] != $password_userinput)
+            {
                 $_SESSION['registrierung_result_message'] = null;
                 $_SESSION['registrierung_ok'] = true;
 
@@ -39,7 +40,9 @@ class AuthController
                 header('Location: /werbeseite'); //zurück auf die Werbeseite
                 logger()->info('Registrierung erfolgreich');
                 logger()->info('Weiterleitung auf Hauptseite nach Registrierung');
-            } else {
+            }
+            else
+            {
                 $_SESSION['registrierung_result_message'] = 'Name, Email oder Passwort existiert bereits';
                 header('Location: /registrierung'); //zurück zur anmeldemaske
                 logger()->warning('fehlgeschlagene Registrierung');
