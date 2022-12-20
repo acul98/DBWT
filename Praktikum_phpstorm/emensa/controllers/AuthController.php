@@ -114,6 +114,8 @@ class AuthController
                       header('Location: /werbeseite'); //zurück auf die Werbeseite
                       logger()->info('Anmeldung erfolgreich');
                       logger()->info('Weiterleitung auf Hauptseite nach Anmeldung');
+
+                    return true;
                     }
                 else {
                     $link = connectdb();
@@ -134,6 +136,12 @@ class AuthController
                 logger()->warning('fehlgeschlagene Anmeldung');
             }
         }
+    }
+    public function bewertung(RequestData $rd)
+    {
+        $gerichtid = $rd->query['gerichtid'] ?? false;
+        return view('Werbeseite.bewertung');
+        //['gerichtid' => $gerichtid];
     }
 }
 

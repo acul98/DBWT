@@ -3,10 +3,10 @@ CREATE TABLE bewertungen
  bemerkung VARCHAR(200) NOT NULL,
  bewertungszeitpunkt DATETIME,
  hervorgehoben BOOLEAN NOT NULL DEFAULT false,
- sternebwertung VARCHAR(80) NOT NULL,
+ sternebwertung VARCHAR(80) NOT NULL
 );
 
 
 ALTER TABLE bewertungen
    ADD CONSTRAINT b_id_ref_benutzer_id
-      FOREIGN KEY ()
+      FOREIGN KEY ();

@@ -23,6 +23,7 @@ return array(
     '/anmeldung'     => 'AuthController@anmeldung',
     '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
     '/abmeldung'     => 'AuthController@abmeldung',
+    '/bewertung'     => 'AuthController@bewertung',
 
 
 
