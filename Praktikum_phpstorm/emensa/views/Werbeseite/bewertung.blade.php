@@ -24,6 +24,7 @@
             <label for="3"> Schlecht</label>
             <input type="radio" id="4" name="Bewertung" value="4" required>
             <label for="4"> Sehr schlecht</label>
+            <input type="hidden" name="gerichtid" value="{{$_GET['gerichtid']}}">
             <br>
             <br>
             <input type="submit" value="Absenden" name="Absenden">

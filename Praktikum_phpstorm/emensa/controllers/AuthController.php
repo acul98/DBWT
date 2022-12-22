@@ -50,15 +50,11 @@ class AuthController
         }
     }
 
-
-
-
     public function anmeldung(RequestData $rd)
     {
         $msg = $_SESSION['login_result_message'] ?? null;
         return view('Werbeseite.anmeldung', ['msg' => $msg]);
     }
-
 
     public function abmeldung() {
         session_destroy();
@@ -89,6 +85,7 @@ class AuthController
                       $_SESSION['login_ok'] = true;
                       $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
                       $_SESSION['admin'] = $e['admin'] ;
+                      $_SESSION['id'] = $e['id'];
 
                       $_SESSION['counter']+=1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
                       $counter = $_SESSION['counter'];
@@ -163,16 +160,15 @@ class AuthController
 
             $_SESSION['bewertung_result'] = null;
             $Bemerkung = $_POST['Bemerkung'];
-            $gerichtid = $_GET['gerichtid'] ?? NULL;//ID des Gerichts übergeben
+            $gerichtid = $_POST['gerichtid'];//ID des Gerichts übergeben
             $Admin =  $_SESSION['admin'];//Prüfen ob Admin ist
             $Sterne = $_POST['Bewertung'];
-            $namebenutzer = $_SESSION['nutzer'];
-            $benutzerid = "SELECT id From benutzer WHERE name = '$namebenutzer'";
+            $benutzerid =  $_SESSION['id'];
 
             $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
 
 
-            $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
+            $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebwertung, gericht_id)
                 VALUES ('$benutzerid', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
 
 
