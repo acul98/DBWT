@@ -85,7 +85,7 @@
                     <td> {{$value['name']}}</td>
                     <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                     <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                    <td> <a href="/bewertung?gerichtid{{$value['id']}}">Bewerten</a></td>
+                    <td> <a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
 
 
                     @else
@@ -93,7 +93,7 @@
                                 <td> {{$value['name']}}</td>
                                 <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                                 <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                <td> <a href="/bewertung?gerichtid{{$value['id']}}">Bewerten</a></td>
+                                <td> <a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
 
                     @endif
                                   @else

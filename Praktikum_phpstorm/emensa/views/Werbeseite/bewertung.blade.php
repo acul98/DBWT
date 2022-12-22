@@ -10,6 +10,7 @@
 <br>
 
         <h2>Geben Sie Ihre Bewertung ab:</h2>
+
         <fieldset>
             <label for="Bemerkung"> Bemerkung </label>
             <input type="text" id="Bemerkung" name="Bemerkung" value="" minlength="5" maxlength="100" required>
@@ -25,7 +26,7 @@
             <label for="4"> Sehr schlecht</label>
             <br>
             <br>
-            <input type="submit" value="Absenden">
+            <input type="submit" value="Absenden" name="Absenden">
         </fieldset>
 
 </form>

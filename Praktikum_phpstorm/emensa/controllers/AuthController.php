@@ -88,6 +88,7 @@ class AuthController
                       $_SESSION['login_result_message'] = null;
                       $_SESSION['login_ok'] = true;
                       $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
+                      $_SESSION['admin'] = $e['admin'] ;
 
                       $_SESSION['counter']+=1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
                       $counter = $_SESSION['counter'];
@@ -152,24 +153,18 @@ class AuthController
     }
 
     function bewertungeintragen(RequestData $rd){
-        $link = mysqli_connect(
-            "localhost",           // Host der Datenbank
-            "root",                // Benutzername zur Anmeldung
-            "Passwort",          // Passwort
-            "emensawerbeseite"     // Auswahl der Datenbanken (bzw. des Schemas)
-         // optional port der Datenbank
-        );
+        $link = connectdb();
 
         if (!$link) {
             echo "Verbindung fehlgeschlagen: ", mysqli_connect_error(); //Falls Verbindung nicht aufgebaut werden kann
             exit();
         }
 
-        if (!empty($_POST['Absenden'])){
+
             $_SESSION['bewertung_result'] = null;
             $Bemerkung = $_POST['Bemerkung'];
-            $gerichtid =       //ID des Gerichts übergeben
-            $Admin =  //Prüfen ob Admin ist
+            $gerichtid = $_GET['gerichtid'] ?? NULL;//ID des Gerichts übergeben
+            $Admin =  $_SESSION['admin'];//Prüfen ob Admin ist
             $Sterne = $_POST['Bewertung'];
             $namebenutzer = $_SESSION['nutzer'];
             $benutzerid = "SELECT id From benutzer WHERE name = '$namebenutzer'";
@@ -178,18 +173,19 @@ class AuthController
 
 
             $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
-            VALUES ('$namebenutzer', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
-            //Werte werden in die Tabelle WUnschgericht geschrieben
+                VALUES ('$benutzerid', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
+
+
 
             mysqli_query($link, $sql);
-
+            $link -> commit();
             header('Location: /werbeseite');
-        }
 
-        else{
+
+        /*else{
             $_SESSION['bewertung_result'] = "Ihre Bewertung konnte leider nicht versendet werden.";
             header('Location: /bewertung');
-        }
+        }*/
     }
 
 }
