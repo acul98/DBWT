@@ -14,6 +14,7 @@ class HomeController
         //  return view('home', ['rd' => $request ]);
 
         $data = Gerichteausgabe();
+
         return view('Werbeseite.werbeseite_page', ['Gerichteausgabe' =>$data]);
     }
 

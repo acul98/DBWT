@@ -79,28 +79,38 @@
 
         @foreach($Gerichteausgabe as $value)
             <tr>
-                @if($value['bildname'] != NULL)
+                @if( $_SESSION['login_ok'] == true)
+                    @if($value['bildname'] != NULL)
                 <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
                     <td> {{$value['name']}}</td>
                     <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                     <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                    @if( $_SESSION['login_ok'] == true)
-                        <td> <a href="/bewertung?gerichtid{{$value['id']}}">Bewerten</a></td>
-                    @else
-                        <td>Zum bewerten bitte Anmelden</td>
-                    @endif
-
-                @else
-                    <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
-                <td> {{$value['name']}}</td>
-                <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
-                <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                   @if( $_SESSION['login_ok'] == true)
                     <td> <a href="/bewertung?gerichtid{{$value['id']}}">Bewerten</a></td>
-                       @else
-                       <td>Zum bewerten bitte Anmelden</td>
-                       @endif
 
+
+                    @else
+                                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                                <td> {{$value['name']}}</td>
+                                <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                                <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                                <td> <a href="/bewertung?gerichtid{{$value['id']}}">Bewerten</a></td>
+
+                    @endif
+                                  @else
+                                    @if($value['bildname'] != NULL)
+                                        <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                                        <td> {{$value['name']}}</td>
+                                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                                        <td>Zum bewerten bitte Anmelden</td>
+
+                                        @else
+                                                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                                                <td> {{$value['name']}}</td>
+                                                <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                                                <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                                                <td>Zum bewerten bitte Anmelden</td>
+                                            @endif
                 @endif
                     @endforeach
             </tr>

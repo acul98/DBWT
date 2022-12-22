@@ -6,7 +6,7 @@
 <body>
 <!--<img src="img/titelbild.jpeg">-->
 
-<form action="bewertung.php" method="post">
+<form action="/bewertungeintragen" method="post">
 <br>
 
         <h2>Geben Sie Ihre Bewertung ab:</h2>
@@ -33,8 +33,8 @@
 
 
 <div>
-    @if (isset($msg))
-        {{$msg}}
+    @if (isset($br))
+        {{$br}}
     @endif
 </div>
 </body>

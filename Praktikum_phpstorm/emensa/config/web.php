@@ -24,6 +24,8 @@ return array(
     '/anmeldung_verifizieren'     => 'AuthController@anmeldung_verifizieren',
     '/abmeldung'     => 'AuthController@abmeldung',
     '/bewertung'     => 'AuthController@bewertung',
+    '/bewertungeintragen'     => 'AuthController@bewertungeintragen',
+
 
 
 

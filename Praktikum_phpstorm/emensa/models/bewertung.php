@@ -1,6 +1,6 @@
 <?php
 
-include ('bewertung.blade.php');
+
 
 $link = mysqli_connect(
     "localhost",           // Host der Datenbank
@@ -17,15 +17,17 @@ if (!$link) {
 
 if (!empty($_POST['Absenden'])) {//Wenn POST NICHT leer ist, sollen die im Formular übergebenen Werte in Variablen geschrieben werden
     $Bemerkung = $_POST['Bemerkung'];
-    $ID =       //ID des Gerichts übergeben
+    $gerichtid =       //ID des Gerichts übergeben
     $Admin =  //Prüfen ob Admin ist
     $Sterne = $_POST['Bewertung'];
+    $namebenutzer = $_SESSION['nutzer'];
+    $benutzerid = "SELECT id From benutzer WHERE name = '$namebenutzer'";
 
     $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
 
 
-    $sql = "INSERT INTO bewertungen(bewertungsid, bemerkung, bewertungszeitpunkt, hervorgehoben, sternebewertung)
-        VALUES ('$ID', '$Bemerkung', '$datum', '$Admin', '$Sterne')";
+    $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
+        VALUES ('$namebenutzer', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
     //Werte werden in die Tabelle WUnschgericht geschrieben
 
     mysqli_query($link, $sql);

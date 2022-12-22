@@ -119,7 +119,7 @@ class AuthController
                     }
                 else {
                     $link = connectdb();
-
+                    $_SESSION['login_ok'] = false;
                     $letzterfehler = date('Y-m-d H:i:s');
                     $link->begin_transaction();
                     $letzterfehlersetzten = "UPDATE benutzer SET letzterfehler='$letzterfehler' WHERE email = '$email'";
@@ -128,9 +128,11 @@ class AuthController
                     $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                     header('Location: /anmeldung'); //zurück zur anmeldemaske
                     logger()->warning('fehlgeschlagene Anmeldung');
+
                 }
                 }
             else {
+                $_SESSION['login_ok'] = false;
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                 header('Location: /anmeldung'); //zurück zur anmeldemaske
                 logger()->warning('fehlgeschlagene Anmeldung');
@@ -139,9 +141,56 @@ class AuthController
     }
     public function bewertung(RequestData $rd)
     {
-        $gerichtid = $rd->query['gerichtid'] ?? false;
-        return view('Werbeseite.bewertung');
+        //$gerichtid = $rd->query['gerichtid'] ?? false;
+        $br = $_SESSION['bewertung_result'] ?? null;
+        return view('Werbeseite.bewertung', ['br' => $br]);
         //['gerichtid' => $gerichtid];
+
+
+        $msg = $_SESSION['login_result_message'] ?? null;
+        return view('Werbeseite.anmeldung', ['msg' => $msg]);
     }
+
+    function bewertungeintragen(RequestData $rd){
+        $link = mysqli_connect(
+            "localhost",           // Host der Datenbank
+            "root",                // Benutzername zur Anmeldung
+            "Passwort",          // Passwort
+            "emensawerbeseite"     // Auswahl der Datenbanken (bzw. des Schemas)
+         // optional port der Datenbank
+        );
+
+        if (!$link) {
+            echo "Verbindung fehlgeschlagen: ", mysqli_connect_error(); //Falls Verbindung nicht aufgebaut werden kann
+            exit();
+        }
+
+        if (!empty($_POST['Absenden'])){
+            $_SESSION['bewertung_result'] = null;
+            $Bemerkung = $_POST['Bemerkung'];
+            $gerichtid =       //ID des Gerichts übergeben
+            $Admin =  //Prüfen ob Admin ist
+            $Sterne = $_POST['Bewertung'];
+            $namebenutzer = $_SESSION['nutzer'];
+            $benutzerid = "SELECT id From benutzer WHERE name = '$namebenutzer'";
+
+            $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
+
+
+            $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
+            VALUES ('$namebenutzer', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
+            //Werte werden in die Tabelle WUnschgericht geschrieben
+
+            mysqli_query($link, $sql);
+
+            header('Location: /werbeseite');
+        }
+
+        else{
+            $_SESSION['bewertung_result'] = "Ihre Bewertung konnte leider nicht versendet werden.";
+            header('Location: /bewertung');
+        }
+    }
+
 }
 
