@@ -102,14 +102,14 @@
                                         <td> {{$value['name']}}</td>
                                         <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                                         <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                        <td>Zum bewerten bitte Anmelden</td>
+                                        <td> <a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
 
                                         @else
                                                 <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
                                                 <td> {{$value['name']}}</td>
                                                 <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
                                                 <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                                <td>Zum bewerten bitte Anmelden</td>
+                                                <td> <a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
                                             @endif
                 @endif
                     @endforeach
