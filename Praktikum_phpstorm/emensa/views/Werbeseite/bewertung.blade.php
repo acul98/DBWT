@@ -15,10 +15,10 @@
     <tr>
         @if( $value['id'] == $_GET['gerichtid'])
             @if($value['bildname'] != NULL)
-                <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px; max-height: 100px;" alt="{{$value['name']}}"></td>
+                <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px; max-height: 80px;" alt="{{$value['name']}}"></td>
                 <td> {{$value['name']}}</td>
             @else
-                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
+                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;max-height: 80px;" alt="{{$value['name']}}"></td>
                 <td> {{$value['name']}}</td>
             @endif
         @endif
