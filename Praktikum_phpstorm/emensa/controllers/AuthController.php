@@ -62,7 +62,6 @@ class AuthController
         logger()->info('Abmeldung');
     }
 
-
     function anmeldung_verifizieren (RequestData $rd)
     {
         $email = $rd->query['email'] ?? false;
@@ -137,6 +136,7 @@ class AuthController
             }
         }
     }
+
     public function bewertung(RequestData $rd)
     {
         //$gerichtid = $rd->query['gerichtid'] ?? false;
