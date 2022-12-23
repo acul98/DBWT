@@ -1,6 +1,7 @@
 <?php
 require_once ('../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
+require_once('../models/werbeseitemodel.php');
 
 class AuthController
 {
@@ -141,12 +142,9 @@ class AuthController
     {
         //$gerichtid = $rd->query['gerichtid'] ?? false;
         $br = $_SESSION['bewertung_result'] ?? null;
-        return view('Werbeseite.bewertung', ['br' => $br]);
+        $data = Gerichteausgabe();
+        return view('Werbeseite.bewertung', ['Gerichteausgabe' =>$data,'br' => $br]);
         //['gerichtid' => $gerichtid];
-
-
-        $msg = $_SESSION['login_result_message'] ?? null;
-        return view('Werbeseite.anmeldung', ['msg' => $msg]);
     }
 
     function bewertungeintragen(RequestData $rd){
