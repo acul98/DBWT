@@ -39,14 +39,14 @@
             <input type="text" id="Bemerkung" name="Bemerkung" value="" minlength="5" maxlength="100" required>
             <br>
             <br>
-            <input type="radio" id="1" name="Bewertung" value="1" required>
-            <label for="1"> Sehr gut</label>
-            <input type="radio" id="2" name="Bewertung" value="2" required>
-            <label for="2"> Gut</label>
-            <input type="radio" id="3" name="Bewertung" value="3" required>
-            <label for="3"> Schlecht</label>
-            <input type="radio" id="4" name="Bewertung" value="4" required>
-            <label for="4"> Sehr schlecht</label>
+            <input type="radio" id="4" name="Bewertung" value="1" required>
+            <label for="4"> Sehr gut</label>
+            <input type="radio" id="3" name="Bewertung" value="2" required>
+            <label for="3"> Gut</label>
+            <input type="radio" id="2" name="Bewertung" value="3" required>
+            <label for="2"> Schlecht</label>
+            <input type="radio" id="1" name="Bewertung" value="4" required>
+            <label for="1"> Sehr schlecht</label>
             <input type="hidden" name="gerichtid" value="{{$_GET['gerichtid']}}">
             <br>
             <br>
@@ -78,6 +78,13 @@
 
 
     @endforeach
+            </tr>
+    </table>
+
+    <section class="eigenebewertung">
+        <a href="/meinebewertungen">Zu meinen Bewertungen</a>
+    </section>
+
 </body>
 </html>
 

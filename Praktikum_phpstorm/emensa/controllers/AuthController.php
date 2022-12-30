@@ -177,7 +177,7 @@ class AuthController
     {
         $link = connectdb();
 
-        $tabelle = "SELECT g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt
+        $tabelle = "SELECT g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt, b.bewertungs_id
                       FROM bewertungen b
                       RIGHT JOIN gericht g ON g.id = b.gericht_id
                       GROUP BY g.name ORDER BY bewertungszeitpunkt 'ASC' LIMIT 30 ;";
@@ -185,7 +185,10 @@ class AuthController
 
         return view('Werbeseite.bewertung', ['Bewertungsausgabe' => $tabelle]);
     }
+public function meinebewertungen() {
 
+    return view('Werbeseite.meinebewertungen');
+}
 
 }
 

@@ -26,6 +26,7 @@ return array(
     '/bewertung' => 'AuthController@bewertung',
     '/bewertungeintragen' => 'AuthController@bewertungeintragen',
     '/bewertung' => 'AuthController@Bewertungsausgabe',
+    '/meinebewertungen' => 'AuthController@meinebewertungen',
 
 
     // Erstes Beispiel:
