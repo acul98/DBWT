@@ -1,7 +1,8 @@
 <?php
-require_once ('../models/benutzer.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/../public/index.php');
+require_once('../models/benutzer.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../public/index.php');
 require_once('../models/werbeseitemodel.php');
+require_once('../models/bewertung.php');
 
 class AuthController
 {
@@ -12,7 +13,7 @@ class AuthController
         return view('Werbeseite.registrierung', ['rrm' => $rrm]);
     }
 
-    function registrierung_verifizieren (RequestData $rd)
+    function registrierung_verifizieren(RequestData $rd)
     {
         $name = $rd->query['name'] ?? false;
         $email = $rd->query['email'] ?? false;
@@ -24,8 +25,7 @@ class AuthController
         $password_userinput = sha1($salt . $password);
 
         foreach ($benutzer_db as $e) {
-            if ($e['name'] != $name && $e['email'] != $email && $e['passwort'] != $password_userinput)
-            {
+            if ($e['name'] != $name && $e['email'] != $email && $e['passwort'] != $password_userinput) {
                 $_SESSION['registrierung_result_message'] = null;
                 $_SESSION['registrierung_ok'] = true;
 
@@ -41,9 +41,7 @@ class AuthController
                 header('Location: /werbeseite'); //zurück auf die Werbeseite
                 logger()->info('Registrierung erfolgreich');
                 logger()->info('Weiterleitung auf Hauptseite nach Registrierung');
-            }
-            else
-            {
+            } else {
                 $_SESSION['registrierung_result_message'] = 'Name, Email oder Passwort existiert bereits';
                 header('Location: /registrierung'); //zurück zur anmeldemaske
                 logger()->warning('fehlgeschlagene Registrierung');
@@ -57,13 +55,14 @@ class AuthController
         return view('Werbeseite.anmeldung', ['msg' => $msg]);
     }
 
-    public function abmeldung() {
+    public function abmeldung()
+    {
         session_destroy();
         header('Location: /werbeseite');
         logger()->info('Abmeldung');
     }
 
-    function anmeldung_verifizieren (RequestData $rd)
+    function anmeldung_verifizieren(RequestData $rd)
     {
         $email = $rd->query['email'] ?? false;
         $password = $rd->query['password'] ?? false;
@@ -71,51 +70,49 @@ class AuthController
         $benutzer_db = db_select_benutzer();
 
         $salt = 'dbwt';
-        $password_userinput= sha1($salt . $password);
+        $password_userinput = sha1($salt . $password);
 
-        foreach ($benutzer_db as $e){
+        foreach ($benutzer_db as $e) {
 
-            if($e['email'] === $email){
-                if($e['passwort'] === $password_userinput){
+            if ($e['email'] === $email) {
+                if ($e['passwort'] === $password_userinput) {
                     //counter auf null setzten außer beim admin der darf nicht gesperrt werden, in der db noch ein feld hinzufügen gespert
 
 
+                    $_SESSION['login_result_message'] = null;
+                    $_SESSION['login_ok'] = true;
+                    $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
+                    $_SESSION['admin'] = $e['admin'];
+                    $_SESSION['id'] = $e['id'];
 
-                      $_SESSION['login_result_message'] = null;
-                      $_SESSION['login_ok'] = true;
-                      $_SESSION['nutzer'] = $e['name']; //ausgabe des Namens auf der Werbeseite, welcher sich erfolgreich angemeldet hat.
-                      $_SESSION['admin'] = $e['admin'] ;
-                      $_SESSION['id'] = $e['id'];
-
-                      $_SESSION['counter']+=1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
-                      $counter = $_SESSION['counter'];
-                      $email_db = $e['email'];
-                      //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
-                      $link = connectdb();
-                      //$link->begin_transaction();
+                    $_SESSION['counter'] += 1; //der zähler zählt jee erfolgreiche anmeldung eins hoch
+                    $counter = $_SESSION['counter'];
+                    $email_db = $e['email'];
+                    //Datenbank aufbau und ubdate der anzahlanmeldungen in der Datenbank
+                    $link = connectdb();
+                    //$link->begin_transaction();
 
                     $id = id_finden($email_db);
                     anzahlanmeldungen($id);
 
-                      //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
-                      // $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
-                      // $link->commit();
+                    //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
+                    // $resultanzahlanmeldungensetzten = mysqli_query($link, $anzahlanmeldungensetzten);
+                    // $link->commit();
 
-                      $letzteanmeldung = date('Y-m-d H:i:s');
-                      $link->begin_transaction();
-                      $letzteanmeldungsetzten = "UPDATE benutzer SET letzteanmeldung='$letzteanmeldung' WHERE email = '$email'";
-                      $resultletzteanmeldungsetzten = mysqli_query($link, $letzteanmeldungsetzten);
-                      $link->commit();
-                      mysqli_close($link);
+                    $letzteanmeldung = date('Y-m-d H:i:s');
+                    $link->begin_transaction();
+                    $letzteanmeldungsetzten = "UPDATE benutzer SET letzteanmeldung='$letzteanmeldung' WHERE email = '$email'";
+                    $resultletzteanmeldungsetzten = mysqli_query($link, $letzteanmeldungsetzten);
+                    $link->commit();
+                    mysqli_close($link);
 
 
-                      header('Location: /werbeseite'); //zurück auf die Werbeseite
-                      logger()->info('Anmeldung erfolgreich');
-                      logger()->info('Weiterleitung auf Hauptseite nach Anmeldung');
+                    header('Location: /werbeseite'); //zurück auf die Werbeseite
+                    logger()->info('Anmeldung erfolgreich');
+                    logger()->info('Weiterleitung auf Hauptseite nach Anmeldung');
 
                     return true;
-                    }
-                else {
+                } else {
                     $link = connectdb();
                     $_SESSION['login_ok'] = false;
                     $letzterfehler = date('Y-m-d H:i:s');
@@ -128,8 +125,7 @@ class AuthController
                     logger()->warning('fehlgeschlagene Anmeldung');
 
                 }
-                }
-            else {
+            } else {
                 $_SESSION['login_ok'] = false;
                 $_SESSION['login_result_message'] = 'Name oder Passwort falsch';
                 header('Location: /anmeldung'); //zurück zur anmeldemaske
@@ -143,11 +139,12 @@ class AuthController
         //$gerichtid = $rd->query['gerichtid'] ?? false;
         $br = $_SESSION['bewertung_result'] ?? null;
         $data = Gerichteausgabe();
-        return view('Werbeseite.bewertung', ['Gerichteausgabe' =>$data,'br' => $br]);
+        return view('Werbeseite.bewertung', ['Gerichteausgabe' => $data, 'br' => $br]);
         //['gerichtid' => $gerichtid];
     }
 
-    function bewertungeintragen(RequestData $rd){
+    function bewertungeintragen(RequestData $rd)
+    {
         $link = connectdb();
 
         if (!$link) {
@@ -156,31 +153,39 @@ class AuthController
         }
 
 
-            $_SESSION['bewertung_result'] = null;
-            $Bemerkung = $_POST['Bemerkung'];
-            $gerichtid = $_POST['gerichtid'];//ID des Gerichts übergeben
-            $Admin =  $_SESSION['admin'];//Prüfen ob Admin ist
-            $Sterne = $_POST['Bewertung'];
-            $benutzerid =  $_SESSION['id'];
+        $_SESSION['bewertung_result'] = null;
+        $Bemerkung = $_POST['Bemerkung'];
+        $gerichtid = $_POST['gerichtid'];//ID des Gerichts übergeben
+        $Admin = $_SESSION['admin'];//Prüfen ob Admin ist
+        $Sterne = $_POST['Bewertung'];
+        $benutzerid = $_SESSION['id'];
 
-            $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
+        $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
 
 
-            $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung,bewertungszeitpunkt, hervorgehoben, sternebwertung, gericht_id)
+        $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung, bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
                 VALUES ('$benutzerid', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
 
 
+        mysqli_query($link, $sql);
+        $link->commit();
+        header('Location: /werbeseite');
 
-            mysqli_query($link, $sql);
-            $link -> commit();
-            header('Location: /werbeseite');
-
-
-        /*else{
-            $_SESSION['bewertung_result'] = "Ihre Bewertung konnte leider nicht versendet werden.";
-            header('Location: /bewertung');
-        }*/
     }
+
+    public function Bewertungsausgabe(RequestData $data)
+    {
+        $link = connectdb();
+
+        $tabelle = "SELECT g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt
+                      FROM bewertungen b
+                      RIGHT JOIN gericht g ON g.id = b.gericht_id
+                      GROUP BY g.name ORDER BY bewertungszeitpunkt 'ASC' LIMIT 30 ;";
+
+
+        return view('Werbeseite.bewertung', ['Bewertungsausgabe' => $tabelle]);
+    }
+
 
 }
 

@@ -70,20 +70,5 @@ class ExampleController
         return view('examples.Werbeseite.werbeseite_page', []);
     }
 
-/*
-    public function log()
-    {
 
-        $log = new Logger('name');
-        $log->pushHandler(new StreamHandler('../storage/log.txt', Level::Warning));
-
-        $log->info('An- und Abmeldung');
-        $log->warning('fehlgeschlagene Anmeldung');
-        $log->error('Zugriff auf Hauptseite');
-
-        echo "Geschrieben!";
-
-
-    }
-*/
 }

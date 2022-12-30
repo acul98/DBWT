@@ -16,6 +16,8 @@ class HomeController
         $data = Gerichteausgabe();
         $_SESSION['login_ok'] = $_SESSION['login_ok'] ??  false;
         return view('Werbeseite.werbeseite_page', ['Gerichteausgabe' =>$data , 'login_ok' => $_SESSION['login_ok']]);
+
+
     }
 
 }

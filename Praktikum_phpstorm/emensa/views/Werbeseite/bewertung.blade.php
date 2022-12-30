@@ -2,42 +2,40 @@
 <html>
 <head>
     <title>Gerichte Bewertung</title>
+    <link type="text/css" rel="stylesheet" href="/css/bewertung.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <!--<img src="img/titelbild.jpeg">-->
 @section('main')
     <h1 id="speisen">Das zu bewertende Gericht</h1>
-    <table>
-        <th>Bild</th>
-        <th>Gerichtname</th>
 
-@foreach($Gerichteausgabe as $value)
-    <tr>
+
+    @foreach($Gerichteausgabe as $value)
         @if( $value['id'] == $_GET['gerichtid'])
+            <h2>{{$value['name']}}</h2>
+            <br>
             @if($value['bildname'] != NULL)
-                <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px; max-height: 80px;" alt="{{$value['name']}}"></td>
-                <td> {{$value['name']}}</td>
+                <img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 200px; " alt="{{$value['name']}}">
+
             @else
-                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;max-height: 80px;" alt="{{$value['name']}}"></td>
-                <td> {{$value['name']}}</td>
+                <img src="/img/gerichte/00_image_missing.jpg" style="max-width: 200px;" alt="{{$value['name']}}">
+
             @endif
         @endif
 
-            @endforeach
+    @endforeach
 
-    </tr>
-    </table>
-    <hr>
     <hr>
 
 
-<form action="/bewertungeintragen" method="post">
-<br>
+    <form action="/bewertungeintragen" method="post">
+        <br>
 
         <h2>Geben Sie Ihre Bewertung ab:</h2>
 
         <fieldset>
-            <label for="Bemerkung"> Bemerkung </label>
+            <label for="Bemerkung"> Bemerkung: </label>
             <input type="text" id="Bemerkung" name="Bemerkung" value="" minlength="5" maxlength="100" required>
             <br>
             <br>
@@ -55,33 +53,31 @@
             <input type="submit" value="Absenden" name="Absenden">
         </fieldset>
 
-</form>
+    </form>
 
 
 
-<div>
-    @if (isset($br))
-        {{$br}}
-    @endif
-</div>
+    <div>
+        @if (isset($br))
+            {{$br}}
+        @endif
+    </div>
+    <h1>Bewertungen</h1>
+    <table>
+        <th></th>
+        <th>Gericht</th>
+        <th>Bemerkung</th>
+        <th>Sterne</th>
+
+
+        @foreach($Bewertungsausgabe as $value)
+            <tr>
+                {{--<td>{{$value['gericht_id']}}</td>--}}
+                <td>{{$value['bemerkung']}}</td>
+                <td>{{$value['sternebewertung']}}</td>
+
+
+    @endforeach
 </body>
 </html>
 
-<style>
-    img{
-        width: 100%;
-        height: 100vh;
-    }
-    body{
-        margin-top: 100px;
-        text-align: center;
-        font-family: Arial;
-        color: white;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-        background-position: center center;
-        background-size: cover;
-        background-attachment: fixed;
-        min-height: 100%;
-    }
-
-</style>

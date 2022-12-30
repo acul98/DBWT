@@ -3,7 +3,7 @@ CREATE TABLE bewertungen
  bemerkung VARCHAR(200) NOT NULL,
  bewertungszeitpunkt DATETIME,
  hervorgehoben BOOLEAN NOT NULL DEFAULT false,
- sternebwertung VARCHAR(80) NOT NULL,
+ sternebewertung VARCHAR(80) NOT NULL,
  gericht_id INT8 NOT NULL
 );
 

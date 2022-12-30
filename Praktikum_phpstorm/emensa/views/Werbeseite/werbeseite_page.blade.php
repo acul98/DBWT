@@ -59,7 +59,7 @@
             <a href="/abmeldung">Hier</a> klicken, um sich abzumelden.
         </section>
     @else
-        <section  style="font-size: 20pt; font-family: Verdana;">
+        <section style="font-size: 20pt; font-family: Verdana;">
             <a href="/anmeldung">Hier</a> klicken, um sich anzumelden.
         </section>
     @endif
@@ -70,60 +70,62 @@
 @section('main')
     <h1 id="speisen">Unsere heutigen Speisen</h1>
     <table>
-        <th> </th>
+        <th></th>
         <th>Gericht</th>
         <th>Preis intern</th>
         <th>Preis extern</th>
-
 
 
         @foreach($Gerichteausgabe as $value)
             <tr>
                 @if( $_SESSION['login_ok'] == true)
                     @if($value['bildname'] != NULL)
-                <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
-                    <td> {{$value['name']}}</td>
-                    <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
-                    <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                    <td> <a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
-
+                        <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;"
+                                 alt="{{$value['name']}}"></td>
+                        <td> {{$value['name']}}</td>
+                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                        <td><a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
 
                     @else
-                                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
-                                <td> {{$value['name']}}</td>
-                                <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
-                                <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                <td> <a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
+                        <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;"
+                                 alt="{{$value['name']}}"></td>
+                        <td> {{$value['name']}}</td>
+                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                        <td><a href="/bewertung?gerichtid={{$value['id']}}">Bewerten</a></td>
 
                     @endif
-                                  @else
-                                    @if($value['bildname'] != NULL)
-                                        <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;" alt="{{$value['name']}}"></td>
-                                        <td> {{$value['name']}}</td>
-                                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
-                                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                        <td> <a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
+                @else
+                    @if($value['bildname'] != NULL)
+                        <td><img src="/img/gerichte/{{$value['bildname']}}" style="max-width: 80px;"
+                                 alt="{{$value['name']}}"></td>
+                        <td> {{$value['name']}}</td>
+                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                        <td><a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
 
-                                        @else
-                                                <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;" alt="{{$value['name']}}"></td>
-                                                <td> {{$value['name']}}</td>
-                                                <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
-                                                <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
-                                                <td> <a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
-                                            @endif
+                    @else
+                        <td><img src="/img/gerichte/00_image_missing.jpg" style="max-width: 80px;"
+                                 alt="{{$value['name']}}"></td>
+                        <td> {{$value['name']}}</td>
+                        <td>{{number_format($value['preis_intern'],2) . '€'}}</td>
+                        <td>{{number_format($value['preis_extern'],2) . '€'}}</td>
+                        <td><a href="/anmeldung">Zum bewerten bitte Anmelden</a></td>
+                    @endif
                 @endif
-                    @endforeach
+                @endforeach
             </tr>
     </table>
 
-<hr>
+    <hr>
     <hr>
     <hr>
 
     <h1>Interesse geweckt? Wir informieren Sie!</h1>
     <form action="#formular" method="post">
         <fieldset>
-            <legend>Anmeldung </legend>
+            <legend>Anmeldung</legend>
             <label>Anrede</label> <br>
             <label for="Herr"><input id="Herr" checked="checked" name="Anrede" type="radio" value="Herr"/> Herr</label>
             <br>
@@ -139,7 +141,8 @@
             <input id="emailid" name="email" type="email" required/> <br>
             <br>
             <label for="datenschutz">
-                <input id="datenschutz" name="info" type="checkbox" required/> Datenschutzhinweis gelesen<sup>*</sup></label>
+                <input id="datenschutz" name="info" type="checkbox" required/> Datenschutzhinweis
+                gelesen<sup>*</sup></label>
             <br>
             <br>
             <input type="submit" name="senden" value="senden" required/> <br>
@@ -150,50 +153,51 @@
         <br>
 
 
-@endsection
+        @endsection
 
-@section('Galerie')
-    <div class="container">
-        <section id="Galerie">
-            <div class="images">
-                <h1>Galerie</h1>
-                <img class="Foto" src="img/Sushi.jpg" alt="Sushi">
-                <img class="Foto" src="img/Pizza.jpg" alt="Pizza">
-                <img class="Foto" src="img/Steak.jpg" alt="Steak">
-                <img class="Foto" src="img/PokeBowl.jpg" alt="Poke Bowl">
+        @section('Galerie')
+            <div class="container">
+                <section id="Galerie">
+                    <div class="images">
+                        <h1>Galerie</h1>
+                        <img class="Foto" src="img/Sushi.jpg" alt="Sushi">
+                        <img class="Foto" src="img/Pizza.jpg" alt="Pizza">
+                        <img class="Foto" src="img/Steak.jpg" alt="Steak">
+                        <img class="Foto" src="img/PokeBowl.jpg" alt="Poke Bowl">
+                    </div>
+                    <hr>
+                </section>
             </div>
-            <hr>
-        </section>
-    </div>
-@endsection
-@section('footer')
-    <footer id="Kontakt">
-        <div id="impressum">
+        @endsection
+        @section('footer')
+            <footer id="Kontakt">
+                <div id="impressum">
 
-            <div class="section-header">
+                    <div class="section-header">
 
-                <p class="section-header">Impressum</p>
-            </div>
+                        <p class="section-header">Impressum</p>
+                    </div>
 
-            <div class="contact-wrapper">
+                    <div class="contact-wrapper">
 
-                <ul class="contact-list">
+                        <ul class="contact-list">
 
-                    <li class="list-item"><span class="contact-text name">Elisa Rofalski & Luca Kirchhoff</span></li>
+                            <li class="list-item"><span class="contact-text name">Elisa Rofalski & Luca Kirchhoff</span>
+                            </li>
 
-                    <li class="list-item"><span class="contact-text place">Aachen, DE</span></li>
+                            <li class="list-item"><span class="contact-text place">Aachen, DE</span></li>
 
-                    <li class="list-item"><span class="contact-text phone">555-5555</span></li>
-                </ul>
+                            <li class="list-item"><span class="contact-text phone">555-5555</span></li>
+                        </ul>
 
-                <hr>
-                <br>
-                <div class="copyright">&copy; (c) E-Mensa GmbH ALL OF THE RIGHTS RESERVED</div>
-                <br>
-                <br>
-            </div>
+                        <hr>
+                        <br>
+                        <div class="copyright">&copy; (c) E-Mensa GmbH ALL OF THE RIGHTS RESERVED</div>
+                        <br>
+                        <br>
+                    </div>
 
-        </div>
+                </div>
 
-    </footer>
+            </footer>
 @endsection

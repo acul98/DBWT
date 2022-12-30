@@ -1,0 +1,42 @@
+body{
+    margin-top: 100px;
+    text-align: center;
+    font-family: Arial;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+h2{
+    font-size: larger;
+    margin-bottom: 0;
+}
+label{
+    padding-right: 10px;
+}
+/**** Media Queries ****/
+
+@media all and (max-width : 600px) {
+
+    p {
+        font-size: 12pt;
+        margin: 5px;
+    }
+
+    #speisen h1{
+        font-size: 20pt;
+    }
+input {
+    display: block;
+    margin: auto;
+}
+
+label {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+}
