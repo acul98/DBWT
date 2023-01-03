@@ -93,6 +93,7 @@ class AuthController
                     //$link->begin_transaction();
 
                     $id = id_finden($email_db);
+                    $_SESSION['id']=$id;
                     anzahlanmeldungen($id);
 
                     //$anzahlanmeldungensetzten = "UPDATE benutzer SET anzahlanmeldungen='$counter' WHERE email = '$email'";
@@ -176,14 +177,22 @@ class AuthController
     }
 
 
-public function Bewertungsausgabe(RequestData $rd) {
-    $tabelle = Bewertungsausgabe();
+public function meinebewertungen(RequestData $rd) {
 
-
-    $br = $_SESSION['bewertung_result'] ?? null;
-    $data = Gerichteausgabe2();
-    return view('Werbeseite.meinebewertungen', ['Bewertungsausgabe' => $tabelle]);
+    $link = connectdb();
+    $id = $_SESSION['id'];
+    $bewertungen = meinebewertungen($id);
+    bewertung_loeschen($id);
+    return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
 }
+
+/*public function bewertung_loeschen(){
+        $link = connectdb();
+        $id = $_SESSION['id'];
+        bewertung_loeschen($id);
+        return view('Werbeseite.meinebewertungen');
+
+}*/
 
 }
 

@@ -10,22 +10,27 @@
 <h1>Ihre Bewertungen</h1>
 <p>Hier können Sie Ihre Bewertungen sehen und bearbeiten.</p>
 <table>
-    <th></th>
     <th>Gericht</th>
     <th>Bemerkung</th>
     <th>Sterne</th>
     <th>Bewertungszeitpunkt</th>
+    <th></th>
 
 
-    @foreach($Bewertungsausgabe as $value)
+    @foreach($meinebewertungen as $value)
         <tr>
-            @if($_SESSION['id']== $value['bewertungs_id'])
+
             <td>{{$value['name']}}</td>
             <td>{{$value['bemerkung']}}</td>
             <td>{{$value['sternebewertung']}}</td>
-            <td>{{$value['bewertungszeitpunk']}}</td>
-            <td><button class="loeschenbutton">Löschen</button></td>
-            @endif
+            <td>{{$value['bewertungszeitpunkt']}}</td>
+            <td>
+                <form action="bewertung_löschen" method="POST">
+                    <input type="submit" name="loeschen" value="Bewertung löschen">
+                    <input type="hidden" name="bewertungsid" value="{{$value['id']}}">
+                </form>
+            </td>
+
             @endforeach
         </tr>
 </table>

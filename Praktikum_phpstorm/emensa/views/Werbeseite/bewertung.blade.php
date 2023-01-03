@@ -8,7 +8,8 @@
 <body>
 <!--<img src="img/titelbild.jpeg">-->
 @section('main')
-    <h1 id="speisen">Das zu bewertende Gericht</h1>
+    <h1>Geben Sie Ihre Bewertung ab:</h1>
+    <h2 id="speisen">Das zu bewertende Gericht:</h2>
 
 
     @foreach($Gerichteausgabe as $value)
@@ -26,13 +27,10 @@
 
     @endforeach
 
-    <hr>
 
 
     <form action="/bewertungeintragen" method="post">
         <br>
-
-        <h2>Geben Sie Ihre Bewertung ab:</h2>
 
         <fieldset>
             <label for="Bemerkung"> Bemerkung: </label>
@@ -62,7 +60,12 @@
             {{$br}}
         @endif
     </div>
-    <h1>Bewertungen</h1>
+    <h1 class="bewertungen">Bewertungen</h1>
+    <section class="eigenebewertung">
+        <a href="/meinebewertungen">Zu meinen Bewertungen</a>
+    </section>
+    <br>
+    <br>
     <table>
         <th>Gericht</th>
         <th>Bemerkung</th>
@@ -77,13 +80,10 @@
                 <td>{{$value['bewertungszeitpunkt']}}</td>
 
 
-    @endforeach
+                @endforeach
             </tr>
     </table>
-
-    <section class="eigenebewertung">
-        <a href="/meinebewertungen">Zu meinen Bewertungen</a>
-    </section>
+    <br>
 
 </body>
 </html>

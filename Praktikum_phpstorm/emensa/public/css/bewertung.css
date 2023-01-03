@@ -16,6 +16,37 @@ h2{
 label{
     padding-right: 10px;
 }
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: thin solid;
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+caption {
+    text-align: left;
+}
+
+td, th {
+
+    font-size: 15pt;
+    padding: 5px;
+}
+a{
+    margin: 20px;
+}
+a:visited {
+    color: white;
+}
+h1.bewertungen {
+    padding-top: 40px;
+}
+
 /**** Media Queries ****/
 
 @media all and (max-width : 600px) {
@@ -38,5 +69,8 @@ label {
     text-align: center;
     padding-bottom: 10px;
     padding-top: 5px;
+}
+th,td {
+    font-size: 10pt;
 }
 }

@@ -8,7 +8,8 @@
 <body>
 <!--<img src="img/titelbild.jpeg">-->
 <?php $this->startSection('main'); ?>
- <h1 id="speisen">Das zu bewertende Gericht</h1>
+ <h1>Geben Sie Ihre Bewertung ab:</h1>
+ <h2 id="speisen">Das zu bewertende Gericht:</h2>
 
 
  <?php $__currentLoopData = $Gerichteausgabe; $this->addLoop($__currentLoopData);$this->getFirstLoop();
@@ -27,13 +28,10 @@
 
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
 
- <hr>
 
 
  <form action="/bewertungeintragen" method="post">
  <br>
-
- <h2>Geben Sie Ihre Bewertung ab:</h2>
 
  <fieldset>
  <label for="Bemerkung"> Bemerkung: </label>
@@ -64,7 +62,12 @@
 
  <?php endif; ?>
  </div>
- <h1>Bewertungen</h1>
+ <h1 class="bewertungen">Bewertungen</h1>
+ <section class="eigenebewertung">
+ <a href="/meinebewertungen">Zu meinen Bewertungen</a>
+ </section>
+ <br>
+ <br>
  <table>
  <th>Gericht</th>
  <th>Bemerkung</th>
@@ -83,10 +86,7 @@
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </tr>
  </table>
-
- <section class="eigenebewertung">
- <a href="/meinebewertungen">Zu meinen Bewertungen</a>
- </section>
+ <br>
 
 </body>
 </html>
