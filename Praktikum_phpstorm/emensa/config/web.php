@@ -25,8 +25,8 @@ return array(
     '/abmeldung' => 'AuthController@abmeldung',
     '/bewertung' => 'AuthController@bewertung',
     '/bewertungeintragen' => 'AuthController@bewertungeintragen',
-    '/bewertung' => 'AuthController@Bewertungsausgabe',
-    '/meinebewertungen' => 'AuthController@meinebewertungen',
+    '/meinebewertungen' => 'AuthController@Bewertungsausgabe',
+
 
 
     // Erstes Beispiel:

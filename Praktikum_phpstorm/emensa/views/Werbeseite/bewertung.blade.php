@@ -64,17 +64,17 @@
     </div>
     <h1>Bewertungen</h1>
     <table>
-        <th></th>
         <th>Gericht</th>
         <th>Bemerkung</th>
         <th>Sterne</th>
-
+        <th>Bewertungszeitpunkt</th>
 
         @foreach($Bewertungsausgabe as $value)
             <tr>
-                {{--<td>{{$value['gericht_id']}}</td>--}}
+                <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
                 <td>{{$value['sternebewertung']}}</td>
+                <td>{{$value['bewertungszeitpunkt']}}</td>
 
 
     @endforeach

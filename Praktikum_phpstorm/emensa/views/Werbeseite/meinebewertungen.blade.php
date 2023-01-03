@@ -19,7 +19,7 @@
 
     @foreach($Bewertungsausgabe as $value)
         <tr>
-            @if($_SESSION['id']==$value['bewertungs_id'])
+            @if($_SESSION['id']== $value['bewertungs_id'])
             <td>{{$value['name']}}</td>
             <td>{{$value['bemerkung']}}</td>
             <td>{{$value['sternebewertung']}}</td>
@@ -29,4 +29,5 @@
             @endforeach
         </tr>
 </table>
+
 </body>
