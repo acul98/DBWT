@@ -194,5 +194,14 @@ public function meinebewertungen(RequestData $rd) {
 
 }*/
 
+    public function bewertung_hervorheben()
+    {
+
+
+        return view('Werbeseite.bewertung');
+    }
+
+
+
 }
 
