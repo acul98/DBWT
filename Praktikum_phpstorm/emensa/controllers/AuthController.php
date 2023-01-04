@@ -166,7 +166,7 @@ class AuthController
         $datum = date('Y-m-d H:i:s'); //Datum und Uhrzeit wird gesetzt
 
 
-        $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung, bewertungszeitpunkt, hervorgehoben, sternebewertung, gericht_id)
+        $sql = "INSERT INTO bewertungen(bewertungs_id, bemerkung, bewertungszeitpunkt, hervorgehoben, sternebwertung, gericht_id)
                 VALUES ('$benutzerid', '$Bemerkung', '$datum', '$Admin', '$Sterne','$gerichtid')";
 
 
