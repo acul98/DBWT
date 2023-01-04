@@ -78,8 +78,7 @@
                 <td>{{$value['bemerkung']}}</td>
                 <td>{{$value['sternebwertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
-
-
+                
                 @endforeach
             </tr>
     </table>
