@@ -77,7 +77,7 @@
             <tr>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
-                <td>{{$value['sternebwertung']}}</td>
+                <td>{{$value['sternebewertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
                 <td>
                     <form action="bewertung_hervorheben" method="POST">
