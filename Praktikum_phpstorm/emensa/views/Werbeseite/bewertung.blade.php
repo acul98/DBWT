@@ -76,7 +76,7 @@
             <tr>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
-                <td>{{$value['sternebewertung']}}</td>
+                <td>{{$value['sternebwertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
 
 
