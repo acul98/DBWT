@@ -182,8 +182,17 @@ public function meinebewertungen(RequestData $rd) {
     $link = connectdb();
     $id = $_SESSION['id'];
     $bewertungen = meinebewertungen($id);
-    bewertung_loeschen($id);
-    return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
+
+    if (isset($_POST['bewertungsid']))
+    {
+       $bewertungsid = $_POST['bewertungsid'];
+        bewertung_loeschen($bewertungsid);
+        header('Location: /meinebewertung');
+    }
+
+        return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
+
+
 }
 
 /*public function bewertung_loeschen(){

@@ -48,5 +48,6 @@ function bewertung_loeschen($id){
     $link = connectdb();
     $sql = "DELETE FROM bewertungen WHERE bewertungs_id = '$id'";
     $result = mysqli_query($link, $sql);
-    return $result;
+   /* return $result;
+    */
 }

@@ -19,7 +19,6 @@
 
     @foreach($meinebewertungen as $value)
         <tr>
-
             <td>{{$value['name']}}</td>
             <td>{{$value['bemerkung']}}</td>
             <td>{{$value['sternebewertung']}}</td>
