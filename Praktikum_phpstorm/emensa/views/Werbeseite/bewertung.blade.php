@@ -80,11 +80,14 @@
                 <td>{{$value['sternebewertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
                 <td>
+                    @if($_SESSION['admin'] == true)
                     <form action="bewertung_hervorheben" method="POST">
                         <input type="submit" name="hervorheben" value="Bewertung hervorheben">
-                        <!--<input type="hidden" name="bewertungsid" value="{{/*$value['id']*/}}"> -->
+                        <input type="hidden" name="gerichtid" value="{{$_GET['gerichtid']}}">
                     </form>
+                    @else
                 </td>
+                @endif
                 @endforeach
             </tr>
     </table>

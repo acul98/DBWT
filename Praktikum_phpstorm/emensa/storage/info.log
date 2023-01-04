@@ -141,3 +141,6 @@
 [2023-01-04T10:53:10.959048+00:00] name.WARNING: fehlgeschlagene Anmeldung [] []
 [2023-01-04T10:53:17.308719+00:00] name.INFO: Anmeldung erfolgreich [] []
 [2023-01-04T10:53:17.309047+00:00] name.INFO: Weiterleitung auf Hauptseite nach Anmeldung [] []
+[2023-01-04T15:27:28.153958+00:00] name.INFO: Abmeldung [] []
+[2023-01-04T15:27:34.084204+00:00] name.INFO: Anmeldung erfolgreich [] []
+[2023-01-04T15:27:34.084585+00:00] name.INFO: Weiterleitung auf Hauptseite nach Anmeldung [] []
