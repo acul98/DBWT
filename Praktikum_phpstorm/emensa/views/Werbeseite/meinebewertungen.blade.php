@@ -24,9 +24,8 @@
             <td>{{$value['sternebewertung']}}</td>
             <td>{{$value['bewertungszeitpunkt']}}</td>
             <td>
-                <form action="bewertung_löschen" method="POST">
+                <form action="/meinebewertungen" method="POST">
                     <input type="submit" name="loeschen" value="Bewertung löschen">
-                    <input type="hidden" name="bewertungsid" value="{{$value['id']}}">
                 </form>
             </td>
 
