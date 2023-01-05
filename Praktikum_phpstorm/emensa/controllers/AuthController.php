@@ -179,21 +179,15 @@ class AuthController
 
     public function meinebewertungen(RequestData $rd) {
 
-    $link = connectdb();
-    $id = $_SESSION['id'];
-    $bewertungen = meinebewertungen($id);
+   $id = $_SESSION['id'];
+   $bewertungen = meinebewertungen($id);
 
     if (isset($_POST['loeschen']))
     {
-      /* $bewertungsid = $_POST['bewertungsid'];*/
-
-        bewertung_loeschen($id);
-        header('Location: /meinebewertungen');
+        bewertung_loeschen($_POST['bewertungs_id']);
     }
 
         return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
-
-
 }
 
 /*public function bewertung_loeschen(){

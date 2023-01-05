@@ -26,6 +26,7 @@
             <td>
                 <form action="/meinebewertungen" method="POST">
                     <input type="submit" name="loeschen" value="Bewertung löschen">
+                    <input type="hidden" name="bewertungs_id" value="{{$value['bewertungs_id']}}">
                 </form>
             </td>
 
