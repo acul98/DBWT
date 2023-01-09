@@ -177,13 +177,17 @@ class AuthController
     }
 
 
-public function meinebewertungen(RequestData $rd) {
+    public function meinebewertungen(RequestData $rd) {
 
-    $link = connectdb();
-    $id = $_SESSION['id'];
-    $bewertungen = meinebewertungen($id);
-    bewertung_loeschen($id);
-    return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
+   $id = $_SESSION['id'];
+   $bewertungen = meinebewertungen($id);
+
+    if (isset($_POST['loeschen']))
+    {
+        bewertung_loeschen($_POST['bewertungs_id']);
+    }
+
+        return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
 }
 
 /*public function bewertung_loeschen(){
@@ -193,6 +197,14 @@ public function meinebewertungen(RequestData $rd) {
         return view('Werbeseite.meinebewertungen');
 
 }*/
+
+    public function bewertung_hervorheben()
+    {
+
+        header('Location: /bewertung'); //zurück zur anmeldemaske;
+    }
+
+
 
 }
 
