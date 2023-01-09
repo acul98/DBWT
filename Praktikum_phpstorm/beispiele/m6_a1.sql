@@ -10,8 +10,6 @@ CREATE TABLE bewertungen
 CREATE UNIQUE INDEX bewertungen_index
     ON bewertungen (bewertungs_id, gericht_id);
 
-
-
 Drop TABLE bewertungen;
 
 ALTER TABLE bewertungen
@@ -21,3 +19,4 @@ ALTER TABLE bewertungen
 ALTER TABLE bewertungen
     ADD CONSTRAINT bewgericht_id_ref_gericht_id
         FOREIGN KEY (gericht_id) REFERENCES gericht(id);
+
