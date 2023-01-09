@@ -26,6 +26,7 @@ return array(
     '/bewertung' => 'AuthController@bewertung',
     '/bewertungeintragen' => 'AuthController@bewertungeintragen',
     '/meinebewertungen' => 'AuthController@meinebewertungen',
+    '/allebewertungen' => 'hervorhebenController@allebewertungen',
     '/bewertung_hervorheben' => 'AuthController@bewertung_hervorheben',
 
 

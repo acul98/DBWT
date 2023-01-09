@@ -71,7 +71,6 @@
         <th>Bemerkung</th>
         <th>Sterne</th>
         <th>Bewertungszeitpunkt</th>
-        <th>hervorheben</th>
 
         @foreach($Bewertungsausgabe as $value)
             <tr>
@@ -79,17 +78,6 @@
                 <td>{{$value['bemerkung']}}</td>
                 <td>{{$value['sternebewertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
-                @if($_SESSION['admin'] == true)
-                <td>
-                    <form action="bewertung_hervorheben" method="POST">
-                        <input type="submit" name="hervorheben" value="hervorheben">
-                    </form>
-                    <form action="bewertung_hervorheben" method="POST">
-                        <input type="submit" name="hervorheben" value="hervorheben abwählen">
-                    </form>
-                </td>
-                    @else
-                @endif
                 @endforeach
             </tr>
     </table>

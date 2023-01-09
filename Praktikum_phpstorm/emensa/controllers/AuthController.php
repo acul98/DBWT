@@ -184,7 +184,7 @@ class AuthController
         $bewertungen = meinebewertungen($id);
 
 
-       
+
         bewertung_loeschen($gerichtid);
 
         return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
@@ -201,8 +201,12 @@ class AuthController
 
     public function bewertung_hervorheben()
     {
+        if (isset($_POST['hervorheben'])){
 
-        header('Location: /bewertung'); //zurück zur anmeldemaske;
+        }
+
+        return view('Werbeseite.meinebewertungen');
+
     }
 
 

@@ -118,8 +118,13 @@
             </tr>
     </table>
 
+    <br>
+    <a href="/meinebewertungen">Zu meinen Bewertungen</a>
     <hr>
+    <br>
+    <a href="/allebewertungen">Zeige alle Bewertungen</a>
     <hr>
+    <br>
     <hr>
 
     <h1>Interesse geweckt? Wir informieren Sie!</h1>
