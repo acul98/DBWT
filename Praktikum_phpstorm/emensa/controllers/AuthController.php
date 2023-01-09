@@ -179,10 +179,12 @@ class AuthController
 
     public function meinebewertungen(RequestData $rd) {
 
-        $gerichtid = $_GET['gerichtid'];
+        $gerichtid = $_GET['gerichtid'] ?? NULL;
         $id = $_SESSION['id'];
         $bewertungen = meinebewertungen($id);
 
+
+       
         bewertung_loeschen($gerichtid);
 
         return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
