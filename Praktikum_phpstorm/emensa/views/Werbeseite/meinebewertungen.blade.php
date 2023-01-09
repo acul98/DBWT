@@ -23,15 +23,22 @@
             <td>{{$value['bemerkung']}}</td>
             <td>{{$value['sternebewertung']}}</td>
             <td>{{$value['bewertungszeitpunkt']}}</td>
-            <td>
-                <form action="/meinebewertungen" method="POST">
-                    <input type="submit" name="loeschen" value="Bewertung löschen">
-                    <input type="hidden" name="bewertungs_id" value="{{$value['bewertungs_id']}}">
-                </form>
-            </td>
-
+            <td> <a href="/meinebewertungen?gerichtid={{$value['id']}}">Bewertung löschen </a> </td>
             @endforeach
         </tr>
 </table>
+
+<br>
+<br>
+<br>
+<hr>
+<hr>
+<br>
+<br>
+<br>
+
+<section class="backwerbeseite">
+    <a href="/werbeseite">Zurück zur Homepage</a>
+</section>
 
 </body>

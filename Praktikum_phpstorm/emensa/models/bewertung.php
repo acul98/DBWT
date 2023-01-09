@@ -34,7 +34,7 @@ function Bewertungsausgabe()
 
 function meinebewertungen($id){
     $link = connectdb();
-    $sql = "SELECT g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt, b.bewertungs_id
+    $sql = "SELECT g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt, b.bewertungs_id, g.id
             FROM bewertungen b
             JOIN gericht g ON g.id = b.gericht_id
             WHERE bewertungs_id = $id
@@ -44,10 +44,11 @@ function meinebewertungen($id){
 }
 
 
-function bewertung_loeschen($id){
+function bewertung_loeschen($gerichtid){
     $link = connectdb();
-    $sql = "DELETE FROM bewertungen WHERE bewertungs_id = '$id'";
+    $id = $_SESSION['id'];
+    $sql = "DELETE FROM bewertungen WHERE bewertungs_id = '$id' and gericht_id = '$gerichtid'";
     $result = mysqli_query($link, $sql);
-   /* return $result;
-    */
+    return $result;
+
 }
