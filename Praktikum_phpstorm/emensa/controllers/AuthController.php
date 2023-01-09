@@ -181,7 +181,7 @@ class AuthController
 
    $id = $_SESSION['id'];
    $bewertungen = meinebewertungen($id);
-
+w
     if (isset($_POST['loeschen']))
     {
         bewertung_loeschen($_POST['bewertungs_id']);
