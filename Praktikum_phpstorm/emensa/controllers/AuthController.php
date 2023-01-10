@@ -199,7 +199,7 @@ class AuthController
 
 }*/
 
-    public function bewertung_hervorheben()
+    /*public function bewertung_hervorheben()
     {
         //$hervorheben = $rd->query['hervorheben'] ?? false;
         $bewertungsid = $_GET['eindeutige_id'];
@@ -209,7 +209,7 @@ class AuthController
         return view('Werbeseite.meinebewertungen', ['hervorheben' => $hervorheben]);
 
     }
-
+*/
 
 
 }

@@ -55,6 +55,7 @@ function bewertung_loeschen($gerichtid){
 
 function bewertung_hervorheben($eindeutige_id){
     $link = connectdb();
+
     $sql = "UPDATE bewertungen Set hervorgehoben = true WHERE eindeutige_id = '$eindeutige_id'";
     $result = mysqli_query($link, $sql);
     return $result;
