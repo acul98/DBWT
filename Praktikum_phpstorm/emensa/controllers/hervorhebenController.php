@@ -12,7 +12,7 @@ class hervorhebenController
     public function allebewertungen (RequestData $rd) {
 
         $tabelle = Bewertungsausgabe();
-        $bewertungsid = $_GET['eindeutige_id'];
+
         return view('Werbeseite.allebewertungen', ['Bewertungsausgabe' => $tabelle ]);
 
     }
