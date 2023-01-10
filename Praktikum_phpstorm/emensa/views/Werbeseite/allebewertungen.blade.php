@@ -17,7 +17,7 @@
         <th>hervorhebung löschen</th>
 
         @foreach($Bewertungsausgabe as $value)
-            <tr>
+            <tr @if({{$hervorheben == true}})>
                 <td>{{$value['eindeutige_id']}}</td>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
