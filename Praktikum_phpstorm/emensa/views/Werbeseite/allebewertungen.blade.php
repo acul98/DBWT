@@ -8,27 +8,24 @@
 <body>
 
     <table>
+        <th>Bewertungsnummer</th>
         <th>Gericht</th>
         <th>Bemerkung</th>
         <th>Sterne</th>
         <th>Bewertungszeitpunkt</th>
         <th>hervorheben</th>
+        <th>hervorhebung löschen</th>
 
         @foreach($Bewertungsausgabe as $value)
             <tr>
+                <td>{{$value['eindeutige_id']}}</td>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
                 <td>{{$value['sternebewertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
                 @if($_SESSION['admin'] == true)
-                    <td>
-                        <form action="bewertung_hervorheben" method="POST">
-                            <input type="submit" name="hervorheben" value="hervorheben">
-                        </form>
-                        <form action="bewertung_hervorheben" method="POST">
-                            <input type="submit" name="hervorheben abwaehlen" value="hervorheben abwählen">
-                        </form>
-                    </td>
+                    <td><a href="/allebewertungen?eindeutige_id={{$value['eindeutige_id']}}">hervorheben</a></td></td>
+                    <td><a href="/allebewertungen?eindeutige_id={{$value['eindeutige_id']}}">hervorgebung löschen</a></td></td>
                 @else
                 @endif
                 @endforeach

@@ -11,8 +11,6 @@ class hervorhebenController
 
     public function allebewertungen (RequestData $rd) {
 
-
-
         $tabelle = Bewertungsausgabe();
         return view('Werbeseite.allebewertungen', ['Bewertungsausgabe' => $tabelle]);
 

@@ -201,11 +201,12 @@ class AuthController
 
     public function bewertung_hervorheben()
     {
-        if (isset($_POST['hervorheben'])){
+        //$hervorheben = $rd->query['hervorheben'] ?? false;
+        $bewertungsid = $_GET['eindeutige_id'];
+        $hervorheben = bewertung_hervorheben($bewertungsid);
 
-        }
 
-        return view('Werbeseite.meinebewertungen');
+        return view('Werbeseite.meinebewertungen', ['hervorheben' => $hervorheben]);
 
     }
 
