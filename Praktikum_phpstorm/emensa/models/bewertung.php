@@ -20,7 +20,7 @@ function Bewertungsausgabe()
 {
     $link = connectdb();
 
-    $tabelle = "SELECT b.eindeutige_id, g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt, b.bewertungs_id, group_concat(b.gericht_id), group_concat(g.name)
+    $tabelle = "SELECT b.eindeutige_id, g.name, b.bemerkung, b.sternebewertung, b.bewertungszeitpunkt, b.bewertungs_id, b.hervorgehoben,group_concat(b.gericht_id), group_concat(g.name)
                 FROM bewertungen b
                 JOIN gericht g ON g.id = b.gericht_id
                 GROUP BY g.name, b.bewertungszeitpunkt ORDER BY b.bewertungszeitpunkt DESC LIMIT 30 ;";
@@ -57,6 +57,15 @@ function bewertung_hervorheben($eindeutige_id){
     $link = connectdb();
 
     $sql = "UPDATE bewertungen Set hervorgehoben = true WHERE eindeutige_id = '$eindeutige_id'";
+    $result = mysqli_query($link, $sql);
+    return $result;
+
+}
+
+function hervorhebung_loeschen($eindeutige_id){
+    $link = connectdb();
+
+    $sql = "UPDATE bewertungen Set hervorgehoben = false WHERE eindeutige_id = '$eindeutige_id'";
     $result = mysqli_query($link, $sql);
     return $result;
 

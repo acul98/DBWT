@@ -13,8 +13,7 @@ class hervorhebenController
 
         $tabelle = Bewertungsausgabe();
         $bewertungsid = $_GET['eindeutige_id'];
-        $hervorheben = bewertung_hervorheben($bewertungsid);
-        return view('Werbeseite.allebewertungen', ['Bewertungsausgabe' => $tabelle, 'hervorheben' => $hervorheben]);
+        return view('Werbeseite.allebewertungen', ['Bewertungsausgabe' => $tabelle ]);
 
     }
 

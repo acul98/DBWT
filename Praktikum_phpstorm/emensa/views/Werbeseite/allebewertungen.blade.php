@@ -17,16 +17,17 @@
         <th>hervorhebung löschen</th>
 
         @foreach($Bewertungsausgabe as $value)
-            <tr @if($hervorheben == true) style="color:red;">
+            <tr @if($value['hervorgehoben']== true) style="background-color:cadetblue"
+                @elseif($value['hervorgehoben']== false) style="background-color: rgba(0, 0, 0, 0.7)"
+                    @endif>
                 <td>{{$value['eindeutige_id']}}</td>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['bemerkung']}}</td>
                 <td>{{$value['sternebewertung']}}</td>
                 <td>{{$value['bewertungszeitpunkt']}}</td>
-                @endif
                 @if($_SESSION['admin'] == true)
-                    <td><a href="/allebewertungen?eindeutige_id={{$value['eindeutige_id']}}">hervorheben</a></td>
-                    <td><a href="/allebewertungen?eindeutige_id={{$value['eindeutige_id']}}">hervorgebung löschen</a></td>
+                    <td><a href="/bewertung_hervorheben?eindeutige_id={{$value['eindeutige_id']}}">hervorheben</a></td>
+                    <td><a href="/hervorhebung_loeschen?eindeutige_id={{$value['eindeutige_id']}}">hervorgebung löschen</a></td>
                 @else
                 @endif
                 @endforeach

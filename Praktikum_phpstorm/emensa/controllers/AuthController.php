@@ -191,25 +191,21 @@ class AuthController
 
 }
 
-/*public function bewertung_loeschen(){
-        $link = connectdb();
-        $id = $_SESSION['id'];
-        bewertung_loeschen($id);
-        return view('Werbeseite.meinebewertungen');
 
-}*/
+    public function bewertung_hervorheben()
+       {
+           $bewertungsid = $_GET['eindeutige_id'];
+           bewertung_hervorheben($bewertungsid);
+           header('Location: /allebewertungen');
+       }
 
-    /*public function bewertung_hervorheben()
+    public function hervorhebung_loeschen()
     {
-        //$hervorheben = $rd->query['hervorheben'] ?? false;
         $bewertungsid = $_GET['eindeutige_id'];
-        $hervorheben = bewertung_hervorheben($bewertungsid);
-
-
-        return view('Werbeseite.meinebewertungen', ['hervorheben' => $hervorheben]);
-
+        hervorhebung_loeschen($bewertungsid);
+        header('Location: /allebewertungen');
     }
-*/
+
 
 
 }

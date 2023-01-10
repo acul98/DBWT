@@ -28,6 +28,7 @@ return array(
     '/meinebewertungen' => 'AuthController@meinebewertungen',
     '/allebewertungen' => 'hervorhebenController@allebewertungen',
     '/bewertung_hervorheben' => 'AuthController@bewertung_hervorheben',
+    '/hervorhebung_loeschen' => 'AuthController@hervorhebung_loeschen',
 
 
 
