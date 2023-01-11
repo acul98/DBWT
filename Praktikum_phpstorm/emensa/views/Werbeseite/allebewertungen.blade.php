@@ -21,7 +21,7 @@
 
         @foreach($Bewertungsausgabe as $value)
             <tr @if($value['hervorgehoben']== true) style="background-color:cadetblue"
-                @elseif($value['hervorgehoben']== false) style="background-color: rgba(0, 0, 0, 0.7)"
+                @elseif($value['hervorgehoben']== false) style="background-color: #D8DCE4"
                     @endif>
                 <td>{{$value['eindeutige_id']}}</td>
                 <td>{{$value['name']}}</td>
