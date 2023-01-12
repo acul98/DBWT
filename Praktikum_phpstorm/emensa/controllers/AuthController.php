@@ -176,7 +176,6 @@ class AuthController
 
     }
 
-
     public function meinebewertungen(RequestData $rd) {
 
         $gerichtid = $_GET['gerichtid'] ?? NULL;
@@ -184,13 +183,11 @@ class AuthController
         $bewertungen = meinebewertungen($id);
 
 
-
         bewertung_loeschen($gerichtid);
 
         return view('Werbeseite.meinebewertungen', ['meinebewertungen' => $bewertungen]);
 
 }
-
 
     public function bewertung_hervorheben()
        {
@@ -205,8 +202,6 @@ class AuthController
         hervorhebung_loeschen($bewertungsid);
         header('Location: /allebewertungen');
     }
-
-
 
 }
 

@@ -50,10 +50,7 @@
             <br>
             <input type="submit" value="Absenden" name="Absenden">
         </fieldset>
-
     </form>
-
-
 
     <div>
         @if (isset($br))

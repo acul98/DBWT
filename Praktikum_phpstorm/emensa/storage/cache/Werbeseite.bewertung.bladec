@@ -51,10 +51,7 @@
  <br>
  <input type="submit" value="Absenden" name="Absenden">
  </fieldset>
-
  </form>
-
-
 
  <div>
  <?php if(isset($br)): ?>
